@@ -9,6 +9,7 @@
 		<param-value>
             classpath*:conf/applicationContext-datasource.xml,
             classpath*:conf/applicationContext-rest.xml,
+            classpath*:conf/applicationContext-mvc.xml
         </param-value>
 	</context-param>
 	<welcome-file-list>

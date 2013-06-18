@@ -1,9 +1,11 @@
 /*
- * 文 件 名:  UserStatus.java
- * 描    述:  UserStatus.java
+ * 文 件 名:  UserStatusResponse.java
+ * 描    述:  UserStatusResponse.java
  * 时    间:  2013-6-17
  */
-package com.babyshow.user.bean;
+package com.babyshow.rest.userstatus;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * <一句话功能简述>
@@ -11,16 +13,18 @@ package com.babyshow.user.bean;
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-17]
  */
-public class UserStatus
+public class UserStatusResponse
 {
     /**
      * 用户状态
      */
+    @JsonProperty("user_status")
     private String userStatus;
     
     /**
      * 用户序号
      */
+    @JsonProperty("user_num")
     private int userNum;
     
     /**

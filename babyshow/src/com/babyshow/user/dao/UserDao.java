@@ -8,11 +8,10 @@ package com.babyshow.user.dao;
 import com.babyshow.user.bean.User;
 
 /**
- * <一句话功能简述>
- * <功能详细描述>
+ * <一句话功能简述> <功能详细描述>
  * 
- * @author  ztc
- * @version  [BABYSHOW V1R1C1, 2013-6-17]
+ * @author ztc
+ * @version [BABYSHOW V1R1C1, 2013-6-17]
  */
 public interface UserDao
 {
@@ -24,14 +23,22 @@ public interface UserDao
      * @param userID
      * @return
      */
-    public User findUser(String userID);
+    public User findUserByUserID(String userID);
     
     /**
      * 
-     * 插入user 
+     * 插入user
      * 
      * @param user
      */
     public void insertUser(User user);
     
+    /**
+     * 
+     * 根据deviceID查User
+     * 
+     * @param deviceID
+     * @return
+     */
+    public User findUserByDeviceID(String deviceID);
 }

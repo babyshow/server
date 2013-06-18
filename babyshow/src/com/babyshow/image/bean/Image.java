@@ -7,6 +7,9 @@ package com.babyshow.image.bean;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * <一句话功能简述> <功能详细描述>
  * 
@@ -18,31 +21,37 @@ public class Image
     /**
      * 照片ID
      */
+    @JsonProperty("image_id")
     private String imageID;
     
     /**
      * 所属用户ID
      */
+    @JsonIgnore
     private String userID;
     
     /**
      * 照片描述
      */
+    @JsonProperty("image_description")
     private String description;
     
     /**
      * 创建时间
      */
+    @JsonProperty("image_created_time")
     private Date createdTime;
     
     /**
      * 照片对应云存储Key
      */
+    @JsonIgnore
     private String urlKey;
     
     /**
      * 照片状态
      */
+    @JsonIgnore
     private String status;
     
     /**
