@@ -70,11 +70,38 @@ public class UserService
     
     /**
      * 
+     * 查询存在用户的总数
+     * 
+     * @return
+     */
+    public int findExistUserCount()
+    {
+        return this.userDao.findExistUserCount();
+    }
+    
+    /**
+     * 
+     * 根据deviceID判断用户是否存在
+     * 
+     * @param deviceID
+     * @return
+     * 存在：true
+     * 不存在：false
+     * 
+     */
+    public Boolean isUserExistByDeviceID(String deviceID)
+    {
+        return !(findUserByDeviceID(deviceID) == null);
+    }
+    
+    /**
+     * 
      * 用户第一次使用，根据deviceID新建用户
+     * 
      * @param deviceID
      * @return
      */
-    public User createNewUserByDeviceID(String deviceID)
+    public User addNewUserByDeviceID(String deviceID)
     {
         User user = new User();
         user.setUserID(UUIDGenerator.generateUserID());

@@ -41,4 +41,12 @@ public interface UserDao
      * @return
      */
     public User findUserByDeviceID(String deviceID);
+    
+    /**
+     * 
+     * 查询存在的用户个数
+     * 
+     * @return
+     */
+    public int findExistUserCount();
 }

@@ -7,13 +7,15 @@ package com.babyshow.rest.userstatus;
 
 import javax.validation.constraints.NotNull;
 
+import com.babyshow.rest.RestRequest;
+
 /**
  * <一句话功能简述>
  * 
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-18]
  */
-public class UserStatusRequest
+public class UserStatusRequest extends RestRequest
 {
     /**
      * 设备ID

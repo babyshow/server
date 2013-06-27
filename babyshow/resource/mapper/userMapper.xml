@@ -9,6 +9,9 @@
 		from t_user where userid=
 		#{userID}
 	</select>
+	<select id="findExistUserCount" resultType="int">
+        select count(1) from t_user
+    </select>
 	<select id="findUserByDeviceID" parameterType="int" resultType="User">
         select
         userid,status,deviceid,regtime,usertype

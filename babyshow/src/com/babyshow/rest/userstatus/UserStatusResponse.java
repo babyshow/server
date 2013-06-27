@@ -5,6 +5,7 @@
  */
 package com.babyshow.rest.userstatus;
 
+import com.babyshow.rest.RestResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -13,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-17]
  */
-public class UserStatusResponse
+public class UserStatusResponse extends RestResponse
 {
     /**
      * ÓÃ»§×´Ì¬

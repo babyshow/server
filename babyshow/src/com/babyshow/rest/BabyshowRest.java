@@ -1,6 +1,6 @@
 /*
- * 文 件 名:  UserStatusRest.java
- * 描    述:  UserStatusRest.java
+ * 文 件 名:  BabyshowRest.java
+ * 描    述:  BabyshowRest.java
  * 时    间:  2013-6-17
  */
 package com.babyshow.rest;
@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.babyshow.rest.userstatus.UserStatusRequest;
 import com.babyshow.rest.userstatus.UserStatusResponse;
-import com.babyshow.user.bean.User;
-import com.babyshow.user.service.UserService;
 
 /**
  * <一句话功能简述>
@@ -26,10 +24,10 @@ import com.babyshow.user.service.UserService;
  * @version [BABYSHOW V1R1C1, 2013-6-17]
  */
 @Controller
-public class UserStatusRest
+public class BabyshowRest
 {
     @Autowired
-    private UserService userService;
+    private RestHelper restHelper;
     
     /**
      * 
@@ -44,31 +42,9 @@ public class UserStatusRest
     public UserStatusResponse getUserStatus(@Valid
     UserStatusRequest userStatusRequest, BindingResult bindingResult)
     {
-        return (UserStatusResponse)handleRest(userStatusRequest, bindingResult);
+        return (UserStatusResponse)restHelper.handleRest(userStatusRequest, bindingResult);
     }
     
-    /**
-     * 
-     * rest 请求统一处理方法，接受请求对象、校验信息，统一返回响应对象
-     * 
-     * @param object
-     * @param result
-     * @return
-     */
-    private Object handleRest(Object object, BindingResult result)
-    {
-        
-        UserStatusRequest userStatusRequest = (UserStatusRequest)object;
-        userStatusRequest.getDevice_id();
-        String deviceID = userStatusRequest.getDevice_id();
-        User user = userService.findUserByDeviceID(deviceID);
-        UserStatusResponse userStatus = new UserStatusResponse();
-        if(user == null)
-        {
-           User userNew = userService.createNewUserByDeviceID(deviceID);
-           userStatus.setUserNum(4444);
-        }
-        return userStatus;
-    }
+
     
 }
