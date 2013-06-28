@@ -16,7 +16,7 @@ public class Sysconfig
     /**
      * 配置ID
      */
-    private String configID;
+    private Integer id;
     
     /**
      * 参数代码
@@ -32,26 +32,6 @@ public class Sysconfig
      * 备注
      */
     private String remark;
-    
-    /**
-     * 获取 configID
-     * 
-     * @return 返回 configID
-     */
-    public String getConfigID()
-    {
-        return configID;
-    }
-    
-    /**
-     * 设置 configID
-     * 
-     * @param 对configID进行赋值
-     */
-    public void setConfigID(String configID)
-    {
-        this.configID = configID;
-    }
     
     /**
      * 获取 paramCode
@@ -111,6 +91,26 @@ public class Sysconfig
     public void setRemark(String remark)
     {
         this.remark = remark;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
     
 }

@@ -20,11 +20,11 @@ public class UUIDGenerator
     
     /**
      * 
-     * 获取唯一的ID
+     * 获取唯一的Code
      * 
      * @return
      */
-    public static String generateUserID()
+    public static String generateUserCode()
     {
         UUID uuid = UUID.randomUUID();
         return uuid.toString().replace("-", "");

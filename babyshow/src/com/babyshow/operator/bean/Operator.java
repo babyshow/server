@@ -15,10 +15,13 @@ import java.util.Date;
  */
 public class Operator
 {
+    
+    private Integer id;
+    
     /**
-     * 操作员ID
+     * 操作员code
      */
-    private String operatorID;
+    private String operatorCode;
     
     /**
      * 登录名
@@ -39,26 +42,6 @@ public class Operator
      * 最后登录时间
      */
     private Date lastActTime;
-    
-    /**
-     * 获取 operatorID
-     * 
-     * @return 返回 operatorID
-     */
-    public String getOperatorID()
-    {
-        return operatorID;
-    }
-    
-    /**
-     * 设置 operatorID
-     * 
-     * @param 对operatorID进行赋值
-     */
-    public void setOperatorID(String operatorID)
-    {
-        this.operatorID = operatorID;
-    }
     
     /**
      * 获取 loginName
@@ -138,6 +121,46 @@ public class Operator
     public void setLastActTime(Date lastActTime)
     {
         this.lastActTime = lastActTime;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
+    
+    /**
+     * 获取 operatorCode
+     * 
+     * @return 返回 operatorCode
+     */
+    public String getOperatorCode()
+    {
+        return operatorCode;
+    }
+    
+    /**
+     * 设置 operatorCode
+     * 
+     * @param 对operatorCode进行赋值
+     */
+    public void setOperatorCode(String operatorCode)
+    {
+        this.operatorCode = operatorCode;
     }
     
 }

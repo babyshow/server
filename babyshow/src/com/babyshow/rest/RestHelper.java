@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -26,12 +27,24 @@ import com.babyshow.util.StringUtil;
 @Service
 public class RestHelper
 {
+    /**
+     * 日志
+     */
     private static Logger log = Logger.getLogger(RestHelper.class);
     
+    /**
+     * Rest请求方法名
+     */
     private final static String REQUEST = "Request";
     
+    /**
+     * Rest响应方法名
+     */
     private final static String RESTSERVICE = "RestService";
     
+    /**
+     * Rest服务方法名
+     */
     private final static String HANDLEMETHOD = "handle";
     
     /**
@@ -42,10 +55,13 @@ public class RestHelper
      * @param result
      * @return
      */
-    public RestResponse handleRest(RestRequest restRequest, BindingResult result)
+    public RestResponse handleRest(HttpHeaders httpheaders, RestRequest restRequest, BindingResult result)
     {
-        String methodName = restRequest.getClass().getSimpleName();
+        // http header 鉴权
+        authHttpHeaders(httpheaders);
+        
         // 确定Rest请求
+        String methodName = restRequest.getClass().getSimpleName();
         String restName = methodName.replace(REQUEST, "");
         String handleName = HANDLEMETHOD + restName;
         RestResponse restResponse = null;
@@ -113,5 +129,21 @@ public class RestHelper
         restResponse.setError(objectError.getDefaultMessage());
         return restResponse;
     }
+    
+    /**
+     * 
+     * 鉴权http消息头
+     * 
+     * @param httpheaders
+     * @return
+     */
+    private boolean authHttpHeaders(HttpHeaders httpheaders)
+    {
+        // TODO 消息头鉴权，目前不需要
+        return true;
+    }
+    
+    
+    
     
 }

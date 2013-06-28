@@ -18,82 +18,22 @@ public class UserViewRecord
     /**
      * 访问记录ID
      */
-    private String recordID;
+    private Integer id;
     
     /**
      * 用户ID
      */
-    private String userID;
+    private String userCode;
     
     /**
      * 照片ID
      */
-    private String imageID;
+    private String imageCode;
     
     /**
      * 访问时间
      */
     private Date viewTime;
-    
-    /**
-     * 获取 recordID
-     * 
-     * @return 返回 recordID
-     */
-    public String getRecordID()
-    {
-        return recordID;
-    }
-    
-    /**
-     * 设置 recordID
-     * 
-     * @param 对recordID进行赋值
-     */
-    public void setRecordID(String recordID)
-    {
-        this.recordID = recordID;
-    }
-    
-    /**
-     * 获取 userID
-     * 
-     * @return 返回 userID
-     */
-    public String getUserID()
-    {
-        return userID;
-    }
-    
-    /**
-     * 设置 userID
-     * 
-     * @param 对userID进行赋值
-     */
-    public void setUserID(String userID)
-    {
-        this.userID = userID;
-    }
-    
-    /**
-     * 获取 imageID
-     * 
-     * @return 返回 imageID
-     */
-    public String getImageID()
-    {
-        return imageID;
-    }
-    
-    /**
-     * 设置 imageID
-     * 
-     * @param 对imageID进行赋值
-     */
-    public void setImageID(String imageID)
-    {
-        this.imageID = imageID;
-    }
     
     /**
      * 获取 viewTime
@@ -113,5 +53,65 @@ public class UserViewRecord
     public void setViewTime(Date viewTime)
     {
         this.viewTime = viewTime;
+    }
+    
+    /**
+     * 获取 userCode
+     * 
+     * @return 返回 userCode
+     */
+    public String getUserCode()
+    {
+        return userCode;
+    }
+    
+    /**
+     * 设置 userCode
+     * 
+     * @param 对userCode进行赋值
+     */
+    public void setUserCode(String userCode)
+    {
+        this.userCode = userCode;
+    }
+    
+    /**
+     * 获取 imageCode
+     * 
+     * @return 返回 imageCode
+     */
+    public String getImageCode()
+    {
+        return imageCode;
+    }
+    
+    /**
+     * 设置 imageCode
+     * 
+     * @param 对imageCode进行赋值
+     */
+    public void setImageCode(String imageCode)
+    {
+        this.imageCode = imageCode;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
 }

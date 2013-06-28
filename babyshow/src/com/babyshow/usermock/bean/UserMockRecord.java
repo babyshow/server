@@ -18,12 +18,12 @@ public class UserMockRecord
     /**
      * 记录ID
      */
-    private String recordID;
+    private Integer id;
     
     /**
-     * 用户ID
+     * 用户Code
      */
-    private String userID;
+    private String userCode;
     
     /**
      * 修改类型
@@ -38,47 +38,7 @@ public class UserMockRecord
     /**
      * 操作员ID
      */
-    private String operatorID;
-    
-    /**
-     * 获取 recordID
-     * 
-     * @return 返回 recordID
-     */
-    public String getRecordID()
-    {
-        return recordID;
-    }
-    
-    /**
-     * 设置 recordID
-     * 
-     * @param 对recordID进行赋值
-     */
-    public void setRecordID(String recordID)
-    {
-        this.recordID = recordID;
-    }
-    
-    /**
-     * 获取 userID
-     * 
-     * @return 返回 userID
-     */
-    public String getUserID()
-    {
-        return userID;
-    }
-    
-    /**
-     * 设置 userID
-     * 
-     * @param 对userID进行赋值
-     */
-    public void setUserID(String userID)
-    {
-        this.userID = userID;
-    }
+    private String operatorCode;
     
     /**
      * 获取 mockType
@@ -121,23 +81,63 @@ public class UserMockRecord
     }
     
     /**
-     * 获取 operatorID
+     * 获取 userCode
      * 
-     * @return 返回 operatorID
+     * @return 返回 userCode
      */
-    public String getOperatorID()
+    public String getUserCode()
     {
-        return operatorID;
+        return userCode;
     }
     
     /**
-     * 设置 operatorID
+     * 设置 userCode
      * 
-     * @param 对operatorID进行赋值
+     * @param 对userCode进行赋值
      */
-    public void setOperatorID(String operatorID)
+    public void setUserCode(String userCode)
     {
-        this.operatorID = operatorID;
+        this.userCode = userCode;
+    }
+    
+    /**
+     * 获取 operatorCode
+     * 
+     * @return 返回 operatorCode
+     */
+    public String getOperatorCode()
+    {
+        return operatorCode;
+    }
+    
+    /**
+     * 设置 operatorCode
+     * 
+     * @param 对operatorCode进行赋值
+     */
+    public void setOperatorCode(String operatorCode)
+    {
+        this.operatorCode = operatorCode;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
     
 }

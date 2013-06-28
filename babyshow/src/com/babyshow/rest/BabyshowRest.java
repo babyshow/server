@@ -8,8 +8,11 @@ package com.babyshow.rest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,12 +42,12 @@ public class BabyshowRest
      */
     @RequestMapping(method = RequestMethod.GET, value = "/users/status")
     @ResponseBody
-    public UserStatusResponse getUserStatus(@Valid
-    UserStatusRequest userStatusRequest, BindingResult bindingResult)
+    public UserStatusResponse getUserStatus(
+    @RequestHeader HttpHeaders httpheaders,
+    @Valid @ModelAttribute UserStatusRequest userStatusRequest, 
+    BindingResult bindingResult)
     {
-        return (UserStatusResponse)restHelper.handleRest(userStatusRequest, bindingResult);
+        return (UserStatusResponse)restHelper.handleRest(httpheaders, userStatusRequest, bindingResult);
     }
-    
-
     
 }

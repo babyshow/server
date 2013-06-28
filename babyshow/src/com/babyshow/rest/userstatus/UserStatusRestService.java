@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.babyshow.rest.RestStaticConstant;
+import com.babyshow.user.bean.User;
 import com.babyshow.user.service.UserService;
 
 /**
@@ -41,8 +42,8 @@ public class UserStatusRestService
         else
         {
             userService.addNewUserByDeviceID(deviceID);
-            // TODO 这里使用查询表总数来确认，是否不太好，建议在user表中加字段表示写入的时候是第多少个用户
-            int userNum = userService.findExistUserCount();
+            User user = userService.findUserByDeviceID(deviceID);
+            int userNum = user.getRegNum();
             userStatus.setUserStatus(RestStaticConstant.USER_LOGIN_STATUS_FISRT);
             userStatus.setUserNum(userNum);
         }

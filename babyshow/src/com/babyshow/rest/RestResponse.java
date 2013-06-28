@@ -5,6 +5,8 @@
  */
 package com.babyshow.rest;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * <一句话功能简述>
  * 
@@ -16,16 +18,19 @@ public abstract class RestResponse
     /**
      * 所请求Rest地址
      */
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private String request;
     
     /**
      * 错误码
      */
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private String errorCode;
     
     /**
      * 错误信息
      */
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private String error;
     
     /**

@@ -21,14 +21,19 @@ public class Image
     /**
      * 照片ID
      */
-    @JsonProperty("image_id")
-    private String imageID;
+    private Integer id;
     
     /**
-     * 所属用户ID
+     * 照片code
+     */
+    @JsonProperty("image_id")
+    private String imageCode;
+    
+    /**
+     * 所属用户code
      */
     @JsonIgnore
-    private String userID;
+    private String userCode;
     
     /**
      * 照片描述
@@ -53,46 +58,6 @@ public class Image
      */
     @JsonIgnore
     private String status;
-    
-    /**
-     * 获取 imageID
-     * 
-     * @return 返回 imageID
-     */
-    public String getImageID()
-    {
-        return imageID;
-    }
-    
-    /**
-     * 设置 imageID
-     * 
-     * @param 对imageID进行赋值
-     */
-    public void setImageID(String imageID)
-    {
-        this.imageID = imageID;
-    }
-    
-    /**
-     * 获取 userID
-     * 
-     * @return 返回 userID
-     */
-    public String getUserID()
-    {
-        return userID;
-    }
-    
-    /**
-     * 设置 userID
-     * 
-     * @param 对userID进行赋值
-     */
-    public void setUserID(String userID)
-    {
-        this.userID = userID;
-    }
     
     /**
      * 获取 description
@@ -172,6 +137,66 @@ public class Image
     public void setStatus(String status)
     {
         this.status = status;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
+    
+    /**
+     * 获取 imageCode
+     * 
+     * @return 返回 imageCode
+     */
+    public String getImageCode()
+    {
+        return imageCode;
+    }
+    
+    /**
+     * 设置 imageCode
+     * 
+     * @param 对imageCode进行赋值
+     */
+    public void setImageCode(String imageCode)
+    {
+        this.imageCode = imageCode;
+    }
+    
+    /**
+     * 获取 userCode
+     * 
+     * @return 返回 userCode
+     */
+    public String getUserCode()
+    {
+        return userCode;
+    }
+    
+    /**
+     * 设置 userCode
+     * 
+     * @param 对userCode进行赋值
+     */
+    public void setUserCode(String userCode)
+    {
+        this.userCode = userCode;
     }
     
 }

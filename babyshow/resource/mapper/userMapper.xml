@@ -3,25 +3,25 @@
     "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.babyshow.user.dao.UserDao">
-	<select id="findUserByUserID" parameterType="int" resultType="User">
+	<select id="findUserByUserCode" parameterType="int" resultType="User">
 		select
-		userid,status,deviceid,regtime,usertype
-		from t_user where userid=
-		#{userID}
+		id,usercode,status,deviceid,regtime,regnum,usertype
+		from t_user where usercode=
+		#{userCode}
 	</select>
 	<select id="findExistUserCount" resultType="int">
         select count(1) from t_user
     </select>
 	<select id="findUserByDeviceID" parameterType="int" resultType="User">
         select
-        userid,status,deviceid,regtime,usertype
+        id,usercode,status,deviceid,regtime,regnum,usertype
         from t_user where deviceid=
         #{deviceID}
     </select>
 	<insert id="insertUser" parameterType="User">
 		insert into
-		t_user(userid,status,deviceid,regtime,usertype)
+		t_user(usercode,status,deviceid,regtime,regnum,usertype)
 		value
-		(#{userID},#{status},#{deviceID},#{regTime},#{userType})
+		(#{userCode},#{status},#{deviceID},#{regTime},#{regNum},#{userType})
 	</insert>
 </mapper>

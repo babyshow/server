@@ -104,11 +104,13 @@ public class UserService
     public User addNewUserByDeviceID(String deviceID)
     {
         User user = new User();
-        user.setUserID(UUIDGenerator.generateUserID());
+        int regnum = findExistUserCount();
+        user.setUserCode(UUIDGenerator.generateUserCode());
         user.setDeviceID(deviceID);
         user.setUserType("1");
         user.setStatus("0");
         user.setRegTime(new Date());
+        user.setRegNum(regnum + 1);
         this.userDao.insertUser(user);
         return user;
     }

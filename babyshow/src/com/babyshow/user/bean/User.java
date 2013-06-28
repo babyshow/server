@@ -16,9 +16,14 @@ import java.util.Date;
 public class User
 {
     /**
-     * 用户ID
+     * ID
      */
-    private String userID;
+    private Integer id;
+    
+    /**
+     * 用户code
+     */
+    private String userCode;
     
     /**
      * 用户状态
@@ -36,29 +41,14 @@ public class User
     private Date regTime;
     
     /**
+     * 注册序号
+     */
+    private Integer regNum;
+    
+    /**
      * 用户类型
      */
     private String userType;
-    
-    /**
-     * 获取 userID
-     * 
-     * @return 返回 userID
-     */
-    public String getUserID()
-    {
-        return userID;
-    }
-    
-    /**
-     * 设置 userID
-     * 
-     * @param 对userID进行赋值
-     */
-    public void setUserID(String userID)
-    {
-        this.userID = userID;
-    }
     
     /**
      * 获取 status
@@ -138,6 +128,66 @@ public class User
     public void setUserType(String userType)
     {
         this.userType = userType;
+    }
+    
+    /**
+     * 获取 userCode
+     * 
+     * @return 返回 userCode
+     */
+    public String getUserCode()
+    {
+        return userCode;
+    }
+    
+    /**
+     * 设置 userCode
+     * 
+     * @param 对userCode进行赋值
+     */
+    public void setUserCode(String userCode)
+    {
+        this.userCode = userCode;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
+    
+    /**
+     * 获取 regNum
+     * 
+     * @return 返回 regNum
+     */
+    public Integer getRegNum()
+    {
+        return regNum;
+    }
+    
+    /**
+     * 设置 regNum
+     * 
+     * @param 对regNum进行赋值
+     */
+    public void setRegNum(Integer regNum)
+    {
+        this.regNum = regNum;
     }
     
 }

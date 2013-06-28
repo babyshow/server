@@ -7,6 +7,7 @@ package com.babyshow.rest.userstatus;
 
 import com.babyshow.rest.RestResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <一句话功能简述>
@@ -26,6 +27,7 @@ public class UserStatusResponse extends RestResponse
      * 用户序号
      */
     @JsonProperty("user_num")
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_DEFAULT)
     private int userNum;
     
     /**

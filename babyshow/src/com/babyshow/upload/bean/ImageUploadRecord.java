@@ -14,14 +14,14 @@ package com.babyshow.upload.bean;
 public class ImageUploadRecord
 {
     /**
-     * 上次ID
+     * 上传ID
      */
-    private String uploadID;
+    private Integer id;
     
     /**
-     * 用户ID
+     * 用户Code
      */
-    private String userID;
+    private String userCode;
     
     /**
      * 上传时间
@@ -42,46 +42,6 @@ public class ImageUploadRecord
      * 上传结果
      */
     private String result;
-    
-    /**
-     * 获取 uploadID
-     * 
-     * @return 返回 uploadID
-     */
-    public String getUploadID()
-    {
-        return uploadID;
-    }
-    
-    /**
-     * 设置 uploadID
-     * 
-     * @param 对uploadID进行赋值
-     */
-    public void setUploadID(String uploadID)
-    {
-        this.uploadID = uploadID;
-    }
-    
-    /**
-     * 获取 userID
-     * 
-     * @return 返回 userID
-     */
-    public String getUserID()
-    {
-        return userID;
-    }
-    
-    /**
-     * 设置 userID
-     * 
-     * @param 对userID进行赋值
-     */
-    public void setUserID(String userID)
-    {
-        this.userID = userID;
-    }
     
     /**
      * 获取 uploadTime
@@ -161,6 +121,46 @@ public class ImageUploadRecord
     public void setResult(String result)
     {
         this.result = result;
+    }
+    
+    /**
+     * 获取 userCode
+     * 
+     * @return 返回 userCode
+     */
+    public String getUserCode()
+    {
+        return userCode;
+    }
+    
+    /**
+     * 设置 userCode
+     * 
+     * @param 对userCode进行赋值
+     */
+    public void setUserCode(String userCode)
+    {
+        this.userCode = userCode;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
     
 }

@@ -16,82 +16,22 @@ public class ImageLike
     /**
      * 照片喜欢ID
      */
-    private String likeID;
+    private Integer id;
     
     /**
      * 照片ID
      */
-    private String imageID;
+    private String imageCode;
     
     /**
      * 用户ID
      */
-    private String userID;
+    private String userCode;
     
     /**
      * 评价类型
      */
     private String likeType;
-    
-    /**
-     * 获取 likeID
-     * 
-     * @return 返回 likeID
-     */
-    public String getLikeID()
-    {
-        return likeID;
-    }
-    
-    /**
-     * 设置 likeID
-     * 
-     * @param 对likeID进行赋值
-     */
-    public void setLikeID(String likeID)
-    {
-        this.likeID = likeID;
-    }
-    
-    /**
-     * 获取 imageID
-     * 
-     * @return 返回 imageID
-     */
-    public String getImageID()
-    {
-        return imageID;
-    }
-    
-    /**
-     * 设置 imageID
-     * 
-     * @param 对imageID进行赋值
-     */
-    public void setImageID(String imageID)
-    {
-        this.imageID = imageID;
-    }
-    
-    /**
-     * 获取 userID
-     * 
-     * @return 返回 userID
-     */
-    public String getUserID()
-    {
-        return userID;
-    }
-    
-    /**
-     * 设置 userID
-     * 
-     * @param 对userID进行赋值
-     */
-    public void setUserID(String userID)
-    {
-        this.userID = userID;
-    }
     
     /**
      * 获取 likeType
@@ -111,6 +51,66 @@ public class ImageLike
     public void setLikeType(String likeType)
     {
         this.likeType = likeType;
+    }
+    
+    /**
+     * 获取 id
+     * 
+     * @return 返回 id
+     */
+    public Integer getId()
+    {
+        return id;
+    }
+    
+    /**
+     * 设置 id
+     * 
+     * @param 对id进行赋值
+     */
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
+    
+    /**
+     * 获取 imageCode
+     * 
+     * @return 返回 imageCode
+     */
+    public String getImageCode()
+    {
+        return imageCode;
+    }
+    
+    /**
+     * 设置 imageCode
+     * 
+     * @param 对imageCode进行赋值
+     */
+    public void setImageCode(String imageCode)
+    {
+        this.imageCode = imageCode;
+    }
+    
+    /**
+     * 获取 userCode
+     * 
+     * @return 返回 userCode
+     */
+    public String getUserCode()
+    {
+        return userCode;
+    }
+    
+    /**
+     * 设置 userCode
+     * 
+     * @param 对userCode进行赋值
+     */
+    public void setUserCode(String userCode)
+    {
+        this.userCode = userCode;
     }
     
 }

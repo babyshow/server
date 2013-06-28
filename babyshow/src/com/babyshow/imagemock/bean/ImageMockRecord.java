@@ -18,12 +18,12 @@ public class ImageMockRecord
     /**
      * 记录ID
      */
-    private String recordID;
+    private Integer id;
     
     /**
-     * 照片ID
+     * 照片code
      */
-    private String imageID;
+    private String imageCode;
     
     /**
      * 修改时间
@@ -36,49 +36,9 @@ public class ImageMockRecord
     private int mockValue;
     
     /**
-     * 操作员ID
+     * 操作员Code
      */
-    private String operatorID;
-    
-    /**
-     * 获取 recordID
-     * 
-     * @return 返回 recordID
-     */
-    public String getRecordID()
-    {
-        return recordID;
-    }
-    
-    /**
-     * 设置 recordID
-     * 
-     * @param 对recordID进行赋值
-     */
-    public void setRecordID(String recordID)
-    {
-        this.recordID = recordID;
-    }
-    
-    /**
-     * 获取 imageID
-     * 
-     * @return 返回 imageID
-     */
-    public String getImageID()
-    {
-        return imageID;
-    }
-    
-    /**
-     * 设置 imageID
-     * 
-     * @param 对imageID进行赋值
-     */
-    public void setImageID(String imageID)
-    {
-        this.imageID = imageID;
-    }
+    private String operatorCode;
     
     /**
      * 获取 mockTime
@@ -121,23 +81,63 @@ public class ImageMockRecord
     }
     
     /**
-     * 获取 operatorID
+     * 获取 id
      * 
-     * @return 返回 operatorID
+     * @return 返回 id
      */
-    public String getOperatorID()
+    public Integer getId()
     {
-        return operatorID;
+        return id;
     }
     
     /**
-     * 设置 operatorID
+     * 设置 id
      * 
-     * @param 对operatorID进行赋值
+     * @param 对id进行赋值
      */
-    public void setOperatorID(String operatorID)
+    public void setId(Integer id)
     {
-        this.operatorID = operatorID;
+        this.id = id;
+    }
+    
+    /**
+     * 获取 imageCode
+     * 
+     * @return 返回 imageCode
+     */
+    public String getImageCode()
+    {
+        return imageCode;
+    }
+    
+    /**
+     * 设置 imageCode
+     * 
+     * @param 对imageCode进行赋值
+     */
+    public void setImageCode(String imageCode)
+    {
+        this.imageCode = imageCode;
+    }
+    
+    /**
+     * 获取 operatorCode
+     * 
+     * @return 返回 operatorCode
+     */
+    public String getOperatorCode()
+    {
+        return operatorCode;
+    }
+    
+    /**
+     * 设置 operatorCode
+     * 
+     * @param 对operatorCode进行赋值
+     */
+    public void setOperatorCode(String operatorCode)
+    {
+        this.operatorCode = operatorCode;
     }
     
 }
