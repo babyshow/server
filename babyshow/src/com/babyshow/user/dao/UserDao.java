@@ -5,6 +5,8 @@
  */
 package com.babyshow.user.dao;
 
+import java.util.Date;
+
 import com.babyshow.user.bean.User;
 
 /**
@@ -49,4 +51,13 @@ public interface UserDao
      * @return
      */
     public int findExistUserCount();
+    
+    /**
+     * 根据deviceID、日期查询用户所有Baby照片在指点日期前被喜欢的次数
+     * 
+     * @param deviceID
+     * @return
+     */
+    public int findUserBabyLikeCountByDeviceIDAndDate(String deviceID, Date date);
+    
 }

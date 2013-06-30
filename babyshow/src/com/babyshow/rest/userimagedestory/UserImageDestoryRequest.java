@@ -5,13 +5,15 @@
  */
 package com.babyshow.rest.userimagedestory;
 
+import com.babyshow.rest.RestRequest;
+
 /**
  * <一句话功能简述>
  * 
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-21]
  */
-public class UserImageDestoryRequest
+public class UserImageDestoryRequest extends RestRequest
 {
     /**
      * 设备ID

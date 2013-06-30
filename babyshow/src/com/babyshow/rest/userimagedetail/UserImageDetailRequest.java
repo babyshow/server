@@ -1,9 +1,11 @@
 /*
- * 文 件 名:  UserImgaeDetailRequest.java
- * 描    述:  UserImgaeDetailRequest.java
+ * 文 件 名:  UserImageDetailRequest.java
+ * 描    述:  UserImageDetailRequest.java
  * 时    间:  2013-6-21
  */
 package com.babyshow.rest.userimagedetail;
+
+import com.babyshow.rest.RestRequest;
 
 /**
  * <一句话功能简述>
@@ -11,7 +13,7 @@ package com.babyshow.rest.userimagedetail;
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-21]
  */
-public class UserImgaeDetailRequest
+public class UserImageDetailRequest extends RestRequest
 {
     /**
      * 设备ID
@@ -26,7 +28,7 @@ public class UserImgaeDetailRequest
     /**
      * 照片类型
      */
-    private String image_style;
+    private Integer image_style;
     
     /**
      * 获取 device_id
@@ -73,7 +75,7 @@ public class UserImgaeDetailRequest
      * 
      * @return 返回 image_style
      */
-    public String getImage_style()
+    public Integer getImage_style()
     {
         return image_style;
     }
@@ -83,7 +85,7 @@ public class UserImgaeDetailRequest
      * 
      * @param 对image_style进行赋值
      */
-    public void setImage_style(String image_style)
+    public void setImage_style(Integer image_style)
     {
         this.image_style = image_style;
     }

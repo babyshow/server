@@ -55,7 +55,7 @@ public class RestHelper
      * @param result
      * @return
      */
-    public RestResponse handleRest(HttpHeaders httpheaders, RestRequest restRequest, BindingResult result)
+    public RestResponse handleRest(HttpHeaders httpheaders, RestRequest restRequest, BindingResult bindingResult)
     {
         // http header 鉴权
         authHttpHeaders(httpheaders);
@@ -71,9 +71,9 @@ public class RestHelper
         {
             method = restService.getClass().getMethod(handleName, restRequest.getClass());
             // 静态校验
-            if (result.hasErrors())
+            if (bindingResult.hasErrors())
             {
-                restResponse = handleValidationError(method.getReturnType(), result);
+                restResponse = handleValidationError(method.getReturnType(), bindingResult);
             }
             // 使用java反射分发方法
             restResponse = (RestResponse)method.invoke(restService, restRequest);

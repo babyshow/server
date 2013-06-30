@@ -84,9 +84,7 @@ public class UserService
      * 根据deviceID判断用户是否存在
      * 
      * @param deviceID
-     * @return
-     * 存在：true
-     * 不存在：false
+     * @return 存在：true 不存在：false
      * 
      */
     public Boolean isUserExistByDeviceID(String deviceID)
@@ -114,4 +112,37 @@ public class UserService
         this.userDao.insertUser(user);
         return user;
     }
+    
+    /**
+     * 
+     * 根据当前时间deviceID查询用户所有照片被喜欢次数
+     * 
+     * @param deviceID
+     * @return
+     */
+    public int findUserBabyLikeCountByDeviceID(String deviceID)
+    {
+        Date date = new Date();
+        return this.userDao.findUserBabyLikeCountByDeviceIDAndDate(deviceID, date);
+    }
+    
+    /**
+     * 
+     * 根据deviceID、上次时间查询用户所有照片新增被喜欢次数
+     * 
+     * @param deviceID
+     * @param preDate
+     * @return
+     */
+    public int findUserBabyLikeIncreaseByDeviceIDAndTime(String deviceID, Date preDate)
+    {
+        Date date = new Date();
+        int count = this.userDao.findUserBabyLikeCountByDeviceIDAndDate(deviceID, date)
+            - this.userDao.findUserBabyLikeCountByDeviceIDAndDate(deviceID, preDate);
+        return Math.abs(count);
+    }
+    
+    
+    
+    
 }

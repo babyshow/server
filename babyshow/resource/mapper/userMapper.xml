@@ -3,7 +3,7 @@
     "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.babyshow.user.dao.UserDao">
-	<select id="findUserByUserCode" parameterType="int" resultType="User">
+	<select id="findUserByUserCode" parameterType="java.lang.String" resultType="com.babyshow.user.bean.User">
 		select
 		id,usercode,status,deviceid,regtime,regnum,usertype
 		from t_user where usercode=
@@ -12,7 +12,7 @@
 	<select id="findExistUserCount" resultType="int">
         select count(1) from t_user
     </select>
-	<select id="findUserByDeviceID" parameterType="int" resultType="User">
+	<select id="findUserByDeviceID" parameterType="java.lang.String" resultType="com.babyshow.user.bean.User">
         select
         id,usercode,status,deviceid,regtime,regnum,usertype
         from t_user where deviceid=
@@ -24,4 +24,19 @@
 		value
 		(#{userCode},#{status},#{deviceID},#{regTime},#{regNum},#{userType})
 	</insert>
+    <select id="findUserBabyLikeCountByDeviceID" parameterType="java.lang.String" resultType="int">
+	   select count(1) from t_imagelike il, t_user u
+	   where il.usercode = u.usercode
+	   and u.deviceid = #{deviceID}
+	</select>
+	<select id="findUserBabyLikeCountByDeviceIDAndDate" resultType="int">
+	<![CDATA[
+       select count(1) from t_imagelike il, t_user u
+       where il.usercode = u.usercode
+       and u.deviceid = #{0}
+       and il.liketime <= #{1}
+    ]]>
+    </select>
+	
+	
 </mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babyshow.user.dao.UserLoginLogDao">
+	<select id="findUserLastLoginTimeByDeviceID" resultType="java.util.Date">
+	<![CDATA[
+       select max(ull.logintime) from t_userloginlog ull, 
+       t_user u
+       where ull.usercode = u.usercode
+    ]]>
+    </select>
+	
+</mapper>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babyshow.image.dao.ImageDao">
+	<select id="findImageByImageCode" parameterType="java.lang.String"
+		resultType="com.babyshow.image.bean.Image">
+		select
+		id,imagecode,usercode,description,createdtime,urlkey,status
+		from
+		t_image where imagecode=
+		#{imageCode}
+	</select>
+
+	<insert id="insertImageLike" parameterType="com.babyshow.image.bean.ImageLike">
+		insert into
+		t_imagelike(imagecode,usercode,liketype,liketime)
+		value
+		(#{imageCode},#{userCode},#{likeType},#{likeTime})
+	</insert>
+
+	<delete id="deleleImageByImageCode" parameterType="java.lang.String">
+		delete from
+		t_image
+		where
+		imagecode = #{imageCode}
+	</delete>
+
+	<select id="findImagePopular" parameterType="int"
+		resultType="com.babyshow.image.bean.ImagePopular">
+		select id,imagecode,showtime,status
+		from
+		t_imagepopular
+		where
+		status = #{status}
+	</select>
+	<select id="findImageCountBySinceImageCode" resultType="int">
+		select
+		count(1) from t_image i, t_user u
+		where i.createdtime >
+		(
+		select
+		createdtime from t_image where imagecode = #{0}
+		)
+		and i.usercode =
+		u.usercode
+		and u.usercode = #{1}
+	</select>
+
+	<select id="findImageListBySinceImageCode" resultType="com.babyshow.image.bean.Image">
+		select
+		i.id,i.imagecode,i.usercode,i.description,i.createdtime,i.urlkey,i.status
+		from t_image i, t_user u
+		where i.usercode = u.usercode
+		and i.imagecode =
+		#{0}
+		and u.usercode = #{1}
+		order by i.id limit #{2}, #{3}
+	</select>
+
+	<select id="findImageCountByMaxImageCode" resultType="int">
+	   <![CDATA[
+	    select count(1) from t_image i, t_user u
+        where i.createdtime <
+        (
+            select createdtime from t_image where imagecode = #{0}
+        )
+        and i.usercode = u.usercode
+        and u.usercode = #{1}
+       ]]>
+	</select>
+	
+	<select id="findImageListByMaxImageCode" resultType="com.babyshow.image.bean.Image">
+        select
+        i.id,i.imagecode,i.usercode,i.description,i.createdtime,i.urlkey,i.status
+        from t_image i, t_user u
+        where i.usercode = u.usercode
+        and i.imagecode =
+        #{0}
+        and u.usercode = #{1}
+        order by i.id limit #{2}, #{3}
+    </select>
+</mapper>

@@ -3,7 +3,9 @@
  * 描    述:  ImageLike.java
  * 时    间:  2013-6-17
  */
-package com.babyshow.imagelike.bean;
+package com.babyshow.image.bean;
+
+import java.util.Date;
 
 /**
  * <一句话功能简述> <功能详细描述>
@@ -31,27 +33,12 @@ public class ImageLike
     /**
      * 评价类型
      */
-    private String likeType;
+    private Integer likeType;
     
     /**
-     * 获取 likeType
-     * 
-     * @return 返回 likeType
+     * 评价时间
      */
-    public String getLikeType()
-    {
-        return likeType;
-    }
-    
-    /**
-     * 设置 likeType
-     * 
-     * @param 对likeType进行赋值
-     */
-    public void setLikeType(String likeType)
-    {
-        this.likeType = likeType;
-    }
+    private Date likeTime;
     
     /**
      * 获取 id
@@ -111,6 +98,46 @@ public class ImageLike
     public void setUserCode(String userCode)
     {
         this.userCode = userCode;
+    }
+    
+    /**
+     * 获取 likeType
+     * 
+     * @return 返回 likeType
+     */
+    public Integer getLikeType()
+    {
+        return likeType;
+    }
+    
+    /**
+     * 设置 likeType
+     * 
+     * @param 对likeType进行赋值
+     */
+    public void setLikeType(Integer likeType)
+    {
+        this.likeType = likeType;
+    }
+    
+    /**
+     * 获取 likeTime
+     * 
+     * @return 返回 likeTime
+     */
+    public Date getLikeTime()
+    {
+        return likeTime;
+    }
+    
+    /**
+     * 设置 likeTime
+     * 
+     * @param 对likeTime进行赋值
+     */
+    public void setLikeTime(Date likeTime)
+    {
+        this.likeTime = likeTime;
     }
     
 }

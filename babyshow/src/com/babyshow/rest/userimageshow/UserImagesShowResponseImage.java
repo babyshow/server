@@ -1,6 +1,6 @@
 /*
- * 文 件 名:  UserImageShowResponseImage.java
- * 描    述:  UserImageShowResponseImage.java
+ * 文 件 名:  UserImagesShowResponseImage.java
+ * 描    述:  UserImagesShowResponseImage.java
  * 时    间:  2013-6-20
  */
 package com.babyshow.rest.userimageshow;
@@ -13,7 +13,7 @@ import com.babyshow.image.bean.Image;
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-20]
  */
-public class UserImageShowResponseImage
+public class UserImagesShowResponseImage
 {
     
     /**

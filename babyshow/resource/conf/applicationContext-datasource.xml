@@ -39,7 +39,7 @@
 
     <!-- MyBatis 负责实现DAO接口，无需业务实现，只需要配置接口对应xml -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.babyshow.user.dao" />
+        <property name="basePackage" value="com.babyshow" />
     </bean>
 
 	<!-- 定义事务管理器（声明式的事务） -->

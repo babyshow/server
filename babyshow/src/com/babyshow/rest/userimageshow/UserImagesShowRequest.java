@@ -1,9 +1,11 @@
 /*
- * 文 件 名:  UserImageShowRequest.java
- * 描    述:  UserImageShowRequest.java
+ * 文 件 名:  UserImagesShowRequest.java
+ * 描    述:  UserImagesShowRequest.java
  * 时    间:  2013-6-20
  */
 package com.babyshow.rest.userimageshow;
+
+import com.babyshow.rest.RestRequest;
 
 /**
  * <一句话功能简述>
@@ -11,7 +13,7 @@ package com.babyshow.rest.userimageshow;
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-20]
  */
-public class UserImageShowRequest
+public class UserImagesShowRequest extends RestRequest
 {
     /**
      * 设备ID
@@ -21,7 +23,7 @@ public class UserImageShowRequest
     /**
      * 制定照片返回个数
      */
-    private String count;
+    private Integer count;
     
     /**
      * 查询条件，若指定，则返回时间比since_image_id晚的照片信息
@@ -56,26 +58,6 @@ public class UserImageShowRequest
     public void setDevice_id(String device_id)
     {
         this.device_id = device_id;
-    }
-    
-    /**
-     * 获取 count
-     * 
-     * @return 返回 count
-     */
-    public String getCount()
-    {
-        return count;
-    }
-    
-    /**
-     * 设置 count
-     * 
-     * @param 对count进行赋值
-     */
-    public void setCount(String count)
-    {
-        this.count = count;
     }
     
     /**
@@ -136,6 +118,26 @@ public class UserImageShowRequest
     public void setImage_style(String image_style)
     {
         this.image_style = image_style;
+    }
+    
+    /**
+     * 获取 count
+     * 
+     * @return 返回 count
+     */
+    public Integer getCount()
+    {
+        return count;
+    }
+    
+    /**
+     * 设置 count
+     * 
+     * @param 对count进行赋值
+     */
+    public void setCount(Integer count)
+    {
+        this.count = count;
     }
     
 }

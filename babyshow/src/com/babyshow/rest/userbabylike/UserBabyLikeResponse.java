@@ -5,30 +5,32 @@
  */
 package com.babyshow.rest.userbabylike;
 
+import com.babyshow.rest.RestResponse;
+
 /**
  * <一句话功能简述>
  * 
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-20]
  */
-public class UserBabyLikeResponse
+public class UserBabyLikeResponse extends RestResponse
 {
     /**
      * 所有照片被Like次数
      */
-    private String totalLikeCount;
+    private Integer totalLikeCount;
     
     /**
      * 新增照片Like次数
      */
-    private String newLikeCount;
+    private Integer newLikeCount;
     
     /**
      * 获取 totalLikeCount
      * 
      * @return 返回 totalLikeCount
      */
-    public String getTotalLikeCount()
+    public Integer getTotalLikeCount()
     {
         return totalLikeCount;
     }
@@ -38,7 +40,7 @@ public class UserBabyLikeResponse
      * 
      * @param 对totalLikeCount进行赋值
      */
-    public void setTotalLikeCount(String totalLikeCount)
+    public void setTotalLikeCount(Integer totalLikeCount)
     {
         this.totalLikeCount = totalLikeCount;
     }
@@ -48,7 +50,7 @@ public class UserBabyLikeResponse
      * 
      * @return 返回 newLikeCount
      */
-    public String getNewLikeCount()
+    public Integer getNewLikeCount()
     {
         return newLikeCount;
     }
@@ -58,7 +60,7 @@ public class UserBabyLikeResponse
      * 
      * @param 对newLikeCount进行赋值
      */
-    public void setNewLikeCount(String newLikeCount)
+    public void setNewLikeCount(Integer newLikeCount)
     {
         this.newLikeCount = newLikeCount;
     }

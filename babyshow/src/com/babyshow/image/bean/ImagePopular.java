@@ -1,9 +1,9 @@
 /*
- * 文 件 名:  ImageShow.java
- * 描    述:  ImageShow.java
+ * 文 件 名:  ImagePopular.java
+ * 描    述:  ImagePopular.java
  * 时    间:  2013-6-17
  */
-package com.babyshow.imageshow.bean;
+package com.babyshow.image.bean;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ import java.util.Date;
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-17]
  */
-public class ImageShow
+public class ImagePopular
 {
     /**
      * 展示ID
