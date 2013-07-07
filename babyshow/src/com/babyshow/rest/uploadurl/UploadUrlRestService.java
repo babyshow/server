@@ -5,8 +5,6 @@
  */
 package com.babyshow.rest.uploadurl;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +12,8 @@ import com.babyshow.upload.bean.ImageUpload;
 import com.babyshow.upload.service.ImageUploadService;
 import com.babyshow.user.bean.User;
 import com.babyshow.user.service.UserService;
-import com.babyshow.util.DateUtil;
-import com.babyshow.util.MD5;
+import com.babyshow.util.QiNiuUtil;
+import com.babyshow.util.UUIDGenerator;
 
 /**
  * <一句话功能简述>
@@ -47,9 +45,9 @@ public class UploadUrlRestService
         int shareType = uploadUrlRequest.getShare_type();
         String shareToken = uploadUrlRequest.getShare_token();
         String userCode = user.getUserCode();
-        // 分配上传路径，采用MD5(用户帐号)/日期.jpg
-        Date date = new Date();
-        String qiniuKey = MD5.md5Str(userCode) + "/" + DateUtil.dateTo14String(date) + ".jpg";
+        // 分配上传路径
+        String imageCode = UUIDGenerator.generateImageCode();
+        String qiniuKey = QiNiuUtil.generateQiniuKey(userCode, imageCode, "jpg");
         UploadUrlResponse.setQiniuKey(qiniuKey);
         // 入上传表
         ImageUpload imageUpload = new ImageUpload();
@@ -57,6 +55,8 @@ public class UploadUrlRestService
         imageUpload.setDescription(description);
         imageUpload.setShareType(shareType);
         imageUpload.setShareToken(shareToken);
+        imageUpload.setImageCode(imageCode);
+        imageUpload.setQiniuKey(qiniuKey);
         this.imageUploadService.insertImageUpload(imageUpload);
         return UploadUrlResponse;
     }

@@ -57,7 +57,13 @@ public class Image
      * 照片状态
      */
     @JsonIgnore
-    private String status;
+    private Integer status;
+    
+    /**
+     * 照片访问地址
+     */
+    @JsonIgnore
+    private String url;
     
     /**
      * 获取 description
@@ -120,26 +126,6 @@ public class Image
     }
     
     /**
-     * 获取 status
-     * 
-     * @return 返回 status
-     */
-    public String getStatus()
-    {
-        return status;
-    }
-    
-    /**
-     * 设置 status
-     * 
-     * @param 对status进行赋值
-     */
-    public void setStatus(String status)
-    {
-        this.status = status;
-    }
-    
-    /**
      * 获取 id
      * 
      * @return 返回 id
@@ -197,6 +183,46 @@ public class Image
     public void setUserCode(String userCode)
     {
         this.userCode = userCode;
+    }
+    
+    /**
+     * 获取 status
+     * 
+     * @return 返回 status
+     */
+    public Integer getStatus()
+    {
+        return status;
+    }
+    
+    /**
+     * 设置 status
+     * 
+     * @param 对status进行赋值
+     */
+    public void setStatus(Integer status)
+    {
+        this.status = status;
+    }
+    
+    /**
+     * 获取 url
+     * 
+     * @return 返回 url
+     */
+    public String getUrl()
+    {
+        return url;
+    }
+    
+    /**
+     * 设置 url
+     * 
+     * @param 对url进行赋值
+     */
+    public void setUrl(String url)
+    {
+        this.url = url;
     }
     
 }

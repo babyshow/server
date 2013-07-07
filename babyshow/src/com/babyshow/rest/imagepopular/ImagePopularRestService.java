@@ -38,8 +38,7 @@ public class ImagePopularRestService
         String imageCode = imagePopular.getImageCode();
         imagePopularResponse.setImageID(imagePopular.getImageCode());
         Image image = this.imageService.findImageByImageCode(imageCode, imageStyle);
-        // TODO url需要七牛支持
-        imagePopularResponse.setImageUrl(image.getUrlKey());
+        imagePopularResponse.setImageUrl(image.getUrl());
         // TODO 还有几个参数需要完善
         imagePopularResponse.setLikeStatus(true);
         

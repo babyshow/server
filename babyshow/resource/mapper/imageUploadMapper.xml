@@ -6,9 +6,23 @@
 
 	<insert id="insertImageUpload" parameterType="com.babyshow.upload.bean.ImageUpload">
 		insert into
-		t_imageupload(usercode,uploadtime,description,sharetype,sharetoken,result)
+		t_imageupload(usercode,uploadtime,description,imagecode,qiniukey,sharetype,sharetoken,result)
 		value
-		(#{userCode},#{uploadTime},#{description},#{shareType},#{shareToken},#{result})
+		(#{userCode},#{uploadTime},#{description},#{imageCode},#{qiniuKey},#{shareType},#{shareToken},#{result})
 	</insert>
 
+    <select id="findImageUploadByQiniuKey" resultType="com.babyshow.upload.bean.ImageUpload">
+        select 
+        usercode,uploadtime,description,qiniukey,sharetype,sharetoken,result
+        from 
+        t_imageupload
+        where
+        qiniukey = #{qiniuKey}
+    </select>
+    
+    <update id="updateImageUploadResultByQiniuKey">
+        update t_imageupload set
+        result = #{0}
+        where qiniukey = #{1}
+    </update>
 </mapper>

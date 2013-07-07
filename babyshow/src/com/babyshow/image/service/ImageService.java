@@ -16,6 +16,8 @@ import com.babyshow.image.bean.Image;
 import com.babyshow.image.bean.ImageLike;
 import com.babyshow.image.bean.ImagePopular;
 import com.babyshow.image.dao.ImageDao;
+import com.babyshow.upload.qiniu.QiniuDownloadService;
+import com.babyshow.util.QiNiuUtil;
 
 /**
  * <一句话功能简述>
@@ -29,6 +31,9 @@ public class ImageService
     @Autowired
     private ImageDao imageDao;
     
+    @Autowired
+    private QiniuDownloadService qiniuDownloadService;
+    
     /**
      * 根据照片ID查询照片
      * 
@@ -39,8 +44,22 @@ public class ImageService
     public Image findImageByImageCode(String imageCode, int imageStyle)
     {
         Image image = this.imageDao.findImageByImageCode(imageCode);
-        // TODO 根据Image中的urlKey和imageStyle去七牛服务器提取图片URL
+        // 根据Image中的urlKey和imageStyle去七牛服务器提取图片URL
+        String uploadToken = this.qiniuDownloadService.token();
+        String url = QiNiuUtil.generateDownloadUrl(image.getUrlKey(), uploadToken);
+        image.setUrl(url);
         return image;
+    }
+    
+    /**
+     * 
+     * 写入图片
+     * 
+     * @param image
+     */
+    public void insertImage(Image image)
+    {
+        this.imageDao.insertImage(image);
     }
     
     /**
@@ -92,7 +111,6 @@ public class ImageService
         int limit = this.imageDao.findImageCountBySinceImageCode(sinceImageCode, userCode);
         return this.imageDao.findImageListBySinceImageCode(sinceImageCode, userCode, limit, num);
     }
-    
     
     /**
      * 

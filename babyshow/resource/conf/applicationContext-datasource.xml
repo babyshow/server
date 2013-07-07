@@ -11,6 +11,7 @@
 		<property name="locations">
 			<list>
 				<value>classpath:jdbc.properties</value>
+				<value>classpath:babyshow.properties</value>
 			</list>
 		</property>
 	</bean>

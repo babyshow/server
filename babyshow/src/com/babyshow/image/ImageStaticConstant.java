@@ -13,6 +13,9 @@ package com.babyshow.image;
  */
 public interface ImageStaticConstant
 {
+    public static final int IMAGE_STATUS_NORMAL = 0;
     
     public static final int IMAGE_POPULAR_STATUS_NORMAL = 0;
+    
+    public static final String IMAGE_DOWNLOAD_URL_PREFIX = "showbaby-develop";
 }

@@ -16,6 +16,32 @@ import java.util.Date;
  */
 public class DateUtil
 {
+    
+    /**
+     * 
+     * 获取当前日期YYYY-MM-DD格式
+     * 
+     * @param date
+     * @return
+     */
+    public static String getNowNormalFormatString()
+    {
+        return dateToNormalFormatString(new Date());
+    }
+    
+    /**
+     * 
+     * 日期转化为YYYY-MM-DD格式
+     * 
+     * @param date
+     * @return
+     */
+    public static String dateToNormalFormatString(Date date)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+    
     /**
      * 
      * 日期转化为14位YYYYMMDDHHMMSS
@@ -27,5 +53,28 @@ public class DateUtil
     {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         return sdf.format(date);
+    }
+    
+    /**
+     * 
+     * 获取date日期对应的毫秒数
+     * 
+     * @param date
+     * @return
+     */
+    public static long generateMillSecond(Date date)
+    {
+        return date.getTime();
+    }
+    
+    /**
+     * 
+     * 获取当前日期对应的毫秒数
+     * @return
+     */
+    public static long generateNowMillSecond()
+    {
+        Date date = new Date();
+        return generateMillSecond(date);
     }
 }

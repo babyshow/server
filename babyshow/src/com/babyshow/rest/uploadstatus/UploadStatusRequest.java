@@ -19,9 +19,11 @@ public class UploadStatusRequest
     private String device_id;
     
     /**
-     * 照片样式
+     * 七牛上传路径，由服务器指派
      */
-    private int image_style;
+    private String qiniu_key;
+    
+    private boolean upload_status;
     
     /**
      * 获取 device_id
@@ -44,23 +46,43 @@ public class UploadStatusRequest
     }
     
     /**
-     * 获取 image_style
+     * 获取 qiniu_key
      * 
-     * @return 返回 image_style
+     * @return 返回 qiniu_key
      */
-    public int getImage_style()
+    public String getQiniu_key()
     {
-        return image_style;
+        return qiniu_key;
     }
     
     /**
-     * 设置 image_style
+     * 设置 qiniu_key
      * 
-     * @param 对image_style进行赋值
+     * @param 对qiniu_key进行赋值
      */
-    public void setImage_style(int image_style)
+    public void setQiniu_key(String qiniu_key)
     {
-        this.image_style = image_style;
+        this.qiniu_key = qiniu_key;
+    }
+    
+    /**
+     * 获取 upload_status
+     * 
+     * @return 返回 upload_status
+     */
+    public boolean isUpload_status()
+    {
+        return upload_status;
+    }
+    
+    /**
+     * 设置 upload_status
+     * 
+     * @param 对upload_status进行赋值
+     */
+    public void setUpload_status(boolean upload_status)
+    {
+        this.upload_status = upload_status;
     }
     
 }

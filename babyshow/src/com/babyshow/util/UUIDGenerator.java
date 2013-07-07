@@ -20,7 +20,7 @@ public class UUIDGenerator
     
     /**
      * 
-     * 获取唯一的Code
+     * 获取唯一的用户Code
      * 
      * @return
      */
@@ -30,4 +30,15 @@ public class UUIDGenerator
         return uuid.toString().replace("-", "");
     }
     
+    /**
+     * 
+     * 获取唯一的图片Code
+     * 
+     * @return
+     */
+    public static String generateImageCode()
+    {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString().replace("-", "");
+    }
 }

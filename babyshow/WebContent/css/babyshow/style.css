@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+body {
+	padding-top: 100px;
+	/* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+/*基于bootstrap,Babyshow定制的nav导航*/
+.navbar .navbar-inner {
+	background-color: #fa736d;
+	background-image: -moz-linear-gradient(top, #f76d63, #ff7d7b);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f76d63),
+		to(#ff7d7b));
+	background-image: -webkit-linear-gradient(top, #f76d63, #ff7d7b);
+	background-image: -o-linear-gradient(top, #f76d63, #ff7d7b);
+	background-image: linear-gradient(to bottom, #f76d63, #ff7d7b);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff76d63',
+		endColorstr='#ffff7d7b', GradientType=0);
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.navbar .nav>li>a {
+	color: #FFFFFF;
+	text-shadow: none;
+}
+
+.navbar .nav>li>a:hover {
+    color: #00FF00;
+    text-shadow: none;
+}
+
+
+.navbar .nav .active>a,.navbar .nav .active>a:hover {
+	background-color: #FFFFFF;
+	color: #f76d63;
+	text-decoration: none;
+}
+
+/*基于bootstrap,Babyshow定制的nav导航结束*/
+
+/*日历控件*/
+.template-upload .datepicker {
+	width: 100px;
+}
+/*时间显示*/
+.template-upload .hourtime {
+	width: 80px;
+}
+
+.template-upload .liketimes {
+	width: 50px;
+}

@@ -36,6 +36,16 @@ public class ImageUpload
     private String description;
     
     /**
+     * 图片代码
+     */
+    private String imageCode;
+    
+    /**
+     * 七牛上传Key，由服务器指派
+     */
+    private String qiniuKey;
+    
+    /**
      * 分享类型
      */
     private Integer shareType;
@@ -188,6 +198,46 @@ public class ImageUpload
     public void setShareToken(String shareToken)
     {
         this.shareToken = shareToken;
+    }
+    
+    /**
+     * 获取 qiniuKey
+     * 
+     * @return 返回 qiniuKey
+     */
+    public String getQiniuKey()
+    {
+        return qiniuKey;
+    }
+    
+    /**
+     * 设置 qiniuKey
+     * 
+     * @param 对qiniuKey进行赋值
+     */
+    public void setQiniuKey(String qiniuKey)
+    {
+        this.qiniuKey = qiniuKey;
+    }
+    
+    /**
+     * 获取 imageCode
+     * 
+     * @return 返回 imageCode
+     */
+    public String getImageCode()
+    {
+        return imageCode;
+    }
+    
+    /**
+     * 设置 imageCode
+     * 
+     * @param 对imageCode进行赋值
+     */
+    public void setImageCode(String imageCode)
+    {
+        this.imageCode = imageCode;
     }
     
 }

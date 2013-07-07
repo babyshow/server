@@ -12,6 +12,13 @@
 		#{imageCode}
 	</select>
 
+	<insert id="insertImage" parameterType="com.babyshow.image.bean.Image">
+		insert into
+		t_image(imagecode,usercode,description,createdtime,urlkey,status)
+		value
+		(#{imageCode},#{userCode},#{description},#{createdTime},#{urlKey},#{status})
+	</insert>
+
 	<insert id="insertImageLike" parameterType="com.babyshow.image.bean.ImageLike">
 		insert into
 		t_imagelike(imagecode,usercode,liketype,liketime)

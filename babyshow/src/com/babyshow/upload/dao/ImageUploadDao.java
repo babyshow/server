@@ -23,4 +23,20 @@ public interface ImageUploadDao
      * @param imageUpload
      */
     public void insertImageUpload(ImageUpload imageUpload);
+    
+    /**
+     * 
+     * 根据七牛Key查找上传照片记录
+     * @param qiniuKey
+     * @return
+     */
+    public ImageUpload findImageUploadByQiniuKey(String qiniuKey);
+    
+    /**
+     * 
+     * 根据七牛Key更新上传状态
+     * @param qiniuKey
+     * @return
+     */
+    public void updateImageUploadResultByQiniuKey(int result, String qiniuKey);
 }

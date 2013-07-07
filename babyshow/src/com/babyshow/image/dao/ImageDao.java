@@ -20,12 +20,21 @@ import com.babyshow.image.bean.ImagePopular;
 public interface ImageDao
 {
     /**
+     * 
      * ∏˘æ›’’∆¨ID≤È—Ø’’∆¨
      * 
      * @param imageID
      * @return
      */
     public Image findImageByImageCode(String imageCode);
+    
+    /**
+     * 
+     * –¥»ÎÕº∆¨
+     * 
+     * @param image
+     */
+    public void insertImage(Image image);
     
     /**
      * 
