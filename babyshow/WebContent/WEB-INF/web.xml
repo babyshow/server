@@ -41,5 +41,27 @@
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
 
+	<filter>
+		<filter-name>signfilter</filter-name>
+		<filter-class>com.babyshow.filter.OperatorSignInFiler</filter-class>
+		<init-param>
+			<description>配置白名单</description>
+			<param-name>noCheck</param-name>
+			<param-value>
+			    /rest/signin,
+				/css/bootstrap/bootstrap.min.css
+	        </param-value>
+		</init-param>
+		<init-param>
+			<description>过滤不成功转向地址</description>
+			<param-name>redirectPath</param-name>
+			<param-value>/rest/signin</param-value>
+		</init-param>  
+	</filter>
+
+	<filter-mapping>
+		<filter-name>signfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 </web-app>

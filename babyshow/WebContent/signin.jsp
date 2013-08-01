@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; utf-8"  pageEncoding="utf-8"%>
+<%
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+%>
+<!DOCTYPE HTML>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>babyshow运营后台——登录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le styles -->
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=basePath%>css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 40px;
@@ -42,23 +46,23 @@
 
     </style>
 
-
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=basePath%>assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=basePath%>assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=basePath%>assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="<%=basePath%>assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="<%=basePath%>assets/ico/favicon.png">
   </head>
 
   <body>
 
     <div class="container">
 
-      <form class="form-signin" action="./rest/signin" method="post">
+      <form class="form-signin" action="<%=basePath%>rest/signin" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <input type="text" name="username" class="input-block-level" placeholder="Email address">
         <input type="password" name="password" class="input-block-level" placeholder="Password">
+        <h5>${message}</h5>
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>

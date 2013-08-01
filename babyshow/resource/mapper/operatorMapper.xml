@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.babyshow.operator.dao.OperatorDao">
+	<select id="findOperatorByLoginName" parameterType="java.lang.String"
+		resultType="com.babyshow.operator.bean.Operator">
+		select
+		id,operatorid,loginname,password,status,lastacttime
+		from
+		t_operator
+		where
+		loginname=
+		#{loginName}
+	</select>
+</mapper>
