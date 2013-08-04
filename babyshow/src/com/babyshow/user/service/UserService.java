@@ -6,6 +6,7 @@
 package com.babyshow.user.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.babyshow.user.bean.User;
 import com.babyshow.user.dao.UserDao;
+import com.babyshow.util.Page;
 import com.babyshow.util.UUIDGenerator;
 
 /**
@@ -142,7 +144,29 @@ public class UserService
         return Math.abs(count);
     }
     
+    /**
+     * 
+     * 根据查询条件分页查询user
+     * 
+     * @param user
+     * @param page
+     * @return
+     */
+    public List<User> findUserListByQueryConditionAndPage(User userCondition, Page page)
+    {
+        return this.userDao.findUserListByQueryConditionAndPage(userCondition, page);
+    }
     
-    
-    
+    /**
+     * 
+     * 根据查询条件分页查询user
+     * 
+     * @param user
+     * @param page
+     * @return
+     */
+    public int findUserListCountByQueryCondition(User userCondition)
+    {
+        return this.userDao.findUserListCountByQueryCondition(userCondition);
+    }
 }

@@ -8,13 +8,15 @@ package com.babyshow.rest.imageshow;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.babyshow.rest.RestResponse;
+
 /**
  * <一句话功能简述>
  * 
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-21]
  */
-public class ImageShowResponse
+public class ImageShowResponse extends RestResponse
 {
     /**
      * 照片列表

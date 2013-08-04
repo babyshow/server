@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.babyshow.rest.imagepopular.ImagePopularRequest;
 import com.babyshow.rest.imagepopular.ImagePopularResponse;
+import com.babyshow.rest.imageshow.ImageShowRequest;
+import com.babyshow.rest.imageshow.ImageShowResponse;
 import com.babyshow.rest.uploadurl.UploadUrlRequest;
 import com.babyshow.rest.uploadurl.UploadUrlResponse;
 import com.babyshow.rest.userbabylike.UserBabyLikeRequest;
@@ -198,7 +200,24 @@ public class BabyshowRest
         ImagePopularRequest imagePopularRequest, BindingResult bindingResult)
     {
         return (ImagePopularResponse)restHelper.handleRest(httpheaders, imagePopularRequest, bindingResult);
-        
+    }
+    
+    /**
+     *  Ëæ»ú²é¿´ÕÕÆ¬£¨findÕÕÆ¬£©
+     * 
+     * @param httpheaders
+     * @param imagePopularRequest
+     * @param bindingResult
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "public/images/show")
+    @ResponseBody
+    public ImageShowResponse getImageShow(@RequestHeader
+        HttpHeaders httpheaders, @Valid
+        @ModelAttribute
+        ImageShowRequest imageshowRequest, BindingResult bindingResult)
+    {
+        return (ImageShowResponse)restHelper.handleRest(httpheaders, imageshowRequest, bindingResult);
     }
 }
 

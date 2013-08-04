@@ -42,6 +42,12 @@ public class Image
     private String description;
     
     /**
+     * 照片被喜欢总次数
+     */
+    @JsonProperty("image_like_count")
+    private Integer likeCount;
+    
+    /**
      * 创建时间
      */
     @JsonProperty("image_created_time")
@@ -62,7 +68,7 @@ public class Image
     /**
      * 照片访问地址
      */
-    @JsonIgnore
+    @JsonProperty("image_url")
     private String url;
     
     /**
@@ -223,6 +229,24 @@ public class Image
     public void setUrl(String url)
     {
         this.url = url;
+    }
+
+    /**
+     * 获取 likeCount
+     * @return 返回 likeCount
+     */
+    public Integer getLikeCount()
+    {
+        return likeCount;
+    }
+
+    /**
+     * 设置 likeCount
+     * @param 对likeCount进行赋值
+     */
+    public void setLikeCount(Integer likeCount)
+    {
+        this.likeCount = likeCount;
     }
     
 }

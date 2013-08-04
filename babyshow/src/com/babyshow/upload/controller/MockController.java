@@ -44,7 +44,7 @@ public class MockController
         model.put("defaultHourTime", "12:00");
         // Ä¬ÈÏÏ²»¶´ÎÊý
         model.put("defaultLikeTimes", "1");
-        return new ModelAndView("forward:/upload.jsp");
+        return new ModelAndView("forward:/page/upload/upload.jsp");
     }
     
 }

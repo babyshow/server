@@ -6,7 +6,7 @@
 	<select id="findImageByImageCode" parameterType="java.lang.String"
 		resultType="com.babyshow.image.bean.Image">
 		select
-		id,imagecode,usercode,description,createdtime,urlkey,status
+		id,imagecode,usercode,description,likecount,createdtime,urlkey,status
 		from
 		t_image where imagecode=
 		#{imageCode}
@@ -14,7 +14,7 @@
 
 	<insert id="insertImage" parameterType="com.babyshow.image.bean.Image">
 		insert into
-		t_image(imagecode,usercode,description,createdtime,urlkey,status)
+		t_image(imagecode,usercode,description,likecount,createdtime,urlkey,status)
 		value
 		(#{imageCode},#{userCode},#{description},#{createdTime},#{urlKey},#{status})
 	</insert>
@@ -56,7 +56,7 @@
 
 	<select id="findImageListBySinceImageCode" resultType="com.babyshow.image.bean.Image">
 		select
-		i.id,i.imagecode,i.usercode,i.description,i.createdtime,i.urlkey,i.status
+		i.id,i.imagecode,i.usercode,i.description,i.likecount,i.createdtime,i.urlkey,i.status
 		from t_image i, t_user u
 		where i.usercode = u.usercode
 		and i.imagecode =
@@ -79,7 +79,7 @@
 	
 	<select id="findImageListByMaxImageCode" resultType="com.babyshow.image.bean.Image">
         select
-        i.id,i.imagecode,i.usercode,i.description,i.createdtime,i.urlkey,i.status
+        i.id,i.imagecode,i.usercode,i.description,i.likecount,i.createdtime,i.urlkey,i.status
         from t_image i, t_user u
         where i.usercode = u.usercode
         and i.imagecode =
@@ -87,4 +87,84 @@
         and u.usercode = #{1}
         order by i.id limit #{2}, #{3}
     </select>
+    
+    <select id="findImageListByQueryConditionAndPage" resultType="com.babyshow.image.bean.Image">
+       select 
+       i.id,i.imagecode,i.usercode,i.description,i.likecount,i.createdtime,i.urlkey,i.status
+       from t_image i
+       where 
+       1 = 1
+       <if test="imageCondition.userCode!=null">
+            and usercode = #{imageCondition.userCode}
+       </if>
+       <if test="imageCondition.status!=null">
+            and status = #{imageCondition.status}
+       </if>
+       <if test="imageCondition.description!=null">
+            and description like #{imageCondition.description}
+       </if>
+       <if test="imageCondition.createdTime!=null">
+            and createdTime = #{imageCondition.createdTime}
+       </if>
+       order by   
+       id limit #{page.curRecord}, #{page.recordPerPage}
+    </select>
+    
+    <select id="findImageListCountByQueryCondition" resultType="int">
+       select count(*)
+       from t_image i
+       where 
+       1 = 1
+       <if test="imageCondition.userCode!=null">
+            and usercode = #{imageCondition.userCode}
+       </if>
+       <if test="imageCondition.status!=null">
+            and status = #{imageCondition.status}
+       </if>
+       <if test="imageCondition.description!=null">
+            and description like #{imageCondition.description}
+       </if>
+       <if test="imageCondition.createdTime!=null">
+            and createdTime = #{imageCondition.createdTime}
+       </if>
+    </select>
+    
+    <update id="updateImageLikeCount">
+        update t_image set
+        likecount = likecount + #{count}
+        where imagecode = #{imageCode}
+    </update>
+    
+    <select id="findRandomImageList" resultType="com.babyshow.image.bean.Image">
+		 select distinct
+		    t1.id,t1.imagecode,t1.usercode,t1.description,t1.likecount,t1.createdtime,t1.urlkey,t1.status
+		 from
+		     t_image as t1
+		     join (select 
+		               round(rand() * (select MAX(id) - MIN(id) from t_image) + (select MIN(id) from t_image)) as id 
+		          from t_image limit 100) as t2 on t1.id = t2.id
+		 limit #{count};
+    </select>
+    
+   <select id="findImageLikeByUserCodeAndImageCode" resultType="com.babyshow.image.bean.ImageLike">
+         select 
+             id,imagecode,usercode,liketype,liketime
+         from
+             t_imagelike
+         where
+             usercode = #{userCode}
+         and
+             imagecode = #{imageCode}
+         and 
+             liketype = #{likeType}     
+    </select>
+    
+    <update id="updateImageLikeByUserCodeAndImageCode">
+        update t_imagelike set
+            liketype = #{likeType}
+        where
+             usercode = #{userCode}
+         and
+             imagecode = #{imageCode}
+    </update>
 </mapper>

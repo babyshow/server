@@ -5,13 +5,15 @@
  */
 package com.babyshow.rest.imageshow;
 
+import com.babyshow.rest.RestRequest;
+
 /**
  * <一句话功能简述>
  * 
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-21]
  */
-public class ImageShowRequest
+public class ImageShowRequest extends RestRequest
 {
     /**
      * 设备ID

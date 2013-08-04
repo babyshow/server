@@ -31,8 +31,8 @@
                 <a href="#" class="brand">Babyshow</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="#">增加喜欢次数</a></li>
-                        <li class="active"><a href="#about">mock用户数据</a></li>
+                        <li><a href="<%=basePath%>rest/mock/user">增加喜欢次数</a></li>
+                        <li class="active"><a href="<%=basePath%>rest/mock/upload">mock用户数据</a></li>
                         <li ><a href="#contact">退出</a></li>
                     </ul>
                 </div>

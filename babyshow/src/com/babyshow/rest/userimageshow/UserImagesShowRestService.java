@@ -59,6 +59,9 @@ public class UserImagesShowRestService
             {
                 userImagesShowResponseImage = new UserImagesShowResponseImage();
                 userImagesShowResponseImage.setImage(image);
+                // 用户和照片的赞关系
+                boolean likeStatus = this.imageService.isImageLikeExist(userCode, image.getImageCode());
+                userImagesShowResponseImage.setLikeStatus(likeStatus);
                 userImagesShowResponseImageList.add(userImagesShowResponseImage);
             }
         }
@@ -72,6 +75,9 @@ public class UserImagesShowRestService
             {
                 userImagesShowResponseImage = new UserImagesShowResponseImage();
                 userImagesShowResponseImage.setImage(image);
+                // 用户和照片的赞关系
+                boolean likeStatus = this.imageService.isImageLikeExist(userCode, image.getImageCode());
+                userImagesShowResponseImage.setLikeStatus(likeStatus);
                 userImagesShowResponseImageList.add(userImagesShowResponseImage);
             }
         }

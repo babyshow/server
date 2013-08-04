@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,7 +49,7 @@ public class SignInController
     public @ResponseBody
     ModelAndView signInForward(Map<String,Object> model)
     {
-        return new ModelAndView("forward:/signin.jsp");
+        return new ModelAndView("forward:/page/signin/signin.jsp");
     }
     
     /**
@@ -75,7 +74,7 @@ public class SignInController
         else
         {
             model.put(SIGNIN_MESSAGE, SIGNIN_PASSWORD_ERROR);
-            return new ModelAndView("forward:/signin.jsp");
+            return new ModelAndView("forward:/page/signin/signin.jsp");
         }
     }
     

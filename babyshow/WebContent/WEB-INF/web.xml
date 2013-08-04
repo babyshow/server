@@ -49,7 +49,19 @@
 			<param-name>noCheck</param-name>
 			<param-value>
 			    /rest/signin,
-				/css/bootstrap/bootstrap.min.css
+				/css/bootstrap/bootstrap.min.css,
+				
+				/rest/users/status,
+				/rest/users/baby_like_count,
+				/rest/users/images/show,
+				/rest/users/images/detail,
+				/rest/users/images/like,
+				/rest/users/images/destroy,
+				/rest/upload/url,
+				/rest/upload/status,
+				/rest/public/images/popular,
+				/rest/public/images/show
+				
 	        </param-value>
 		</init-param>
 		<init-param>

@@ -37,6 +37,50 @@
        and il.liketime <= #{1}
     ]]>
     </select>
+
+	<select id="findUserListByQueryConditionAndPage" resultType="com.babyshow.user.bean.User">
+       select id,usercode,status,deviceid,regtime,usertype,regnum
+       from t_user u
+       where 
+       1 = 1
+       <if test="userCondition.userCode!=null">
+            and usercode like #{userCondition.userCode}
+       </if>
+       <if test="userCondition.status!=null">
+            and status like #{userCondition.status}
+       </if>
+       <if test="userCondition.deviceID!=null">
+            and deviceid like #{userCondition.deviceID}
+       </if>
+       <if test="userCondition.regTime!=null">
+            and regtime like #{userCondition.regTime}
+       </if>
+       <if test="userCondition.regNum!=null">
+            and regnum like #{userCondition.regNum}
+       </if>
+       order by   
+       id limit #{page.curRecord}, #{page.recordPerPage}
+    </select>
 	
-	
+	<select id="findUserListCountByQueryCondition" resultType="int">
+       select count(*)
+       from t_user u
+       where 
+       1 = 1
+       <if test="userCondition.userCode!=null">
+            and usercode like #{userCondition.userCode}
+       </if>
+       <if test="userCondition.status!=null">
+            and status like #{userCondition.status}
+       </if>
+       <if test="userCondition.deviceID!=null">
+            and deviceid like #{userCondition.deviceID}
+       </if>
+       <if test="userCondition.regTime!=null">
+            and regtime like #{userCondition.regTime}
+       </if>
+       <if test="userCondition.regNum!=null">
+            and regnum like #{userCondition.regNum}
+       </if>
+    </select>
 </mapper>

@@ -31,16 +31,16 @@ public class QiniuDownloadService
     
     public static final long EXPIRY = System.currentTimeMillis() / 1000 + 3600;
     
-    private static final String SCOPE = "showbaby-develop";
+    private static final String SCOPE = "showbaby-develop.qiniudn.com/";
     
     
-    private String generateSignature()
+    private String generateSignature(String scope)
     {
         
         String jsonScope = null;
         try
         {
-            jsonScope = new JSONStringer().object().key("S").value(SCOPE).key("E").value(EXPIRY).endObject().toString();
+            jsonScope = new JSONStringer().object().key("S").value(scope).key("E").value(EXPIRY).endObject().toString();
         }
         catch (JSONException e)
         {
@@ -77,10 +77,16 @@ public class QiniuDownloadService
         return mac.doFinal();
     }
     
-    public String token()
+    /**
+     * 获取图片下载地址
+     * 
+     * @param qiniukey 图片在七牛服务器的相对地址
+     * @return
+     */
+    public String token(String qiniukey)
     {
-        
-        String signature = generateSignature();
+        String scope = SCOPE + qiniukey;
+        String signature = generateSignature(scope);
         String checksum = urlsafeEncodeString(makeHmac(signature));
         return ACCESSKEY + ":" + checksum + ":" + signature;
     }

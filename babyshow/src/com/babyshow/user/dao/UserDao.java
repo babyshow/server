@@ -6,8 +6,12 @@
 package com.babyshow.user.dao;
 
 import java.util.Date;
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.babyshow.user.bean.User;
+import com.babyshow.util.Page;
 
 /**
  * <一句话功能简述> <功能详细描述>
@@ -59,5 +63,26 @@ public interface UserDao
      * @return
      */
     public int findUserBabyLikeCountByDeviceIDAndDate(String deviceID, Date date);
+    
+    
+    /**
+     * 
+     * 根据user查询条件、page信息分页查询用户列表
+     * 
+     * @param userCondition
+     * @param page
+     * @return
+     */
+    public List<User> findUserListByQueryConditionAndPage(@Param("userCondition") User userCondition, @Param("page") Page page); 
+    
+    /**
+     * 
+     * 根据user查询条件查询记录总数
+     * 
+     * @param userCondition
+     * @return
+     */
+    public int findUserListCountByQueryCondition(@Param("userCondition") User userCondition); 
+  
     
 }

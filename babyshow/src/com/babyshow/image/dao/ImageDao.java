@@ -7,9 +7,12 @@ package com.babyshow.image.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.babyshow.image.bean.Image;
 import com.babyshow.image.bean.ImageLike;
 import com.babyshow.image.bean.ImagePopular;
+import com.babyshow.util.Page;
 
 /**
  * <一句话功能简述>
@@ -103,4 +106,64 @@ public interface ImageDao
      * @return
      */
     public List<Image> findImageListByMaxImageCode(String maxImageCode, String userCode, int limit, int num);
+
+
+    /**
+     * 
+     * 根据image查询条件、page信息分页查询照片列表
+     * 
+     * @param userCondition
+     * @param page
+     * @return
+     */
+    public List<Image> findImageListByQueryConditionAndPage(@Param("imageCondition") Image imageCondition, @Param("page") Page page); 
+    
+    /**
+     * 
+     * 根据image查询条件查询记录总数
+     * 
+     * @param userCondition
+     * @return
+     */
+    public int findImageListCountByQueryCondition(@Param("imageCondition") Image imageCondition); 
+    
+    /**
+     * 
+     * 增加image被喜欢次数
+     * 
+     * @param userCondition
+     * @return
+     */
+    public void updateImageLikeCount(@Param("imageCode") String imageCode, @Param("count") int count); 
+
+    
+    /**
+     * 
+     * 随机查询count张图片
+     * 
+     * @param count
+     * @return
+     */
+    public List<Image> findRandomImageList(int count);
+    
+    /**
+     * 
+     * 查询用户是否已赞或未赞某张照片
+     * 
+     * @param userCode
+     * @param imageCode
+     * @return
+     */
+    public ImageLike findImageLikeByUserCodeAndImageCode(@Param("userCode") String userCode, @Param("imageCode") String imageCode, @Param("likeType") int likeType);
+
+    /**
+     * 
+     * 修改用户赞照片状态
+     * 
+     * @param userCode
+     * @param imageCode
+     * @return
+     */
+    public void updateImageLikeByUserCodeAndImageCode(@Param("userCode") String userCode, @Param("imageCode") String imageCode, @Param("likeType") int likeType);
+
 }

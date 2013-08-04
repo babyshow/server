@@ -18,4 +18,10 @@ public interface ImageStaticConstant
     public static final int IMAGE_POPULAR_STATUS_NORMAL = 0;
     
     public static final String IMAGE_DOWNLOAD_URL_PREFIX = "showbaby-develop";
+    
+    public static final int DEFAULT_RECORD_PER_PAGE = 10;
+    
+    public static final int IMAGE_LIKE_TYPE_LIKE = 0;
+    
+    public static final int IMAGE_LIKE_TYPE_DISLIKE = 1;
 }

@@ -33,7 +33,7 @@ public class UserImageDetailRestService
     public UserImageDetailResponse handleUserImageDetail(UserImageDetailRequest userImageDetailRequest)
     {
         String imageCode = userImageDetailRequest.getImage_id();
-        int imageStyle = userImageDetailRequest.getImage_style();
+        Integer imageStyle = userImageDetailRequest.getImage_style();
         Image image = this.imageService.findImageByImageCode(imageCode, imageStyle);
         UserImageDetailResponse userImageDetailResponse = new UserImageDetailResponse();
         String imageUrl = image.getUrl();
