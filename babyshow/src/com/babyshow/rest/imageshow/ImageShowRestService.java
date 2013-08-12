@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.babyshow.image.bean.Image;
 import com.babyshow.image.service.ImageService;
+import com.babyshow.rest.RestService;
 import com.babyshow.user.bean.User;
 import com.babyshow.user.service.UserService;
 
@@ -23,7 +24,7 @@ import com.babyshow.user.service.UserService;
  * @version [BABYSHOW V1R1C1, 2013-7-1]
  */
 @Service
-public class ImageShowRestService
+public class ImageShowRestService extends RestService
 {
     @Autowired
     private UserService userService;
@@ -41,9 +42,23 @@ public class ImageShowRestService
     public ImageShowResponse handleImageShow(ImageShowRequest imageShowRequest)
     {
         ImageShowResponse imageShowResponse = new ImageShowResponse();
-        int count = imageShowRequest.getCount();
-        int imageStyle = imageShowRequest.getImage_style();
         String deviceID = imageShowRequest.getDevice_id();
+        
+        // 校验ID是否存在
+        boolean userValidate = this.validateUser(deviceID, imageShowResponse);
+        if(!userValidate)
+        {
+            imageShowResponse.setRequest("imageShowRequest");
+            return imageShowResponse;
+        }
+        
+        Integer count = imageShowRequest.getCount();
+        if(count == null)
+        {
+            count = 1;
+        }
+        
+        int imageStyle = imageShowRequest.getImage_style();       
         User user = this.userService.findUserByDeviceID(deviceID);
         String userCode = user.getUserCode();
         List<ImageShowResponseImage> imageShowResponseImageList = new ArrayList<ImageShowResponseImage>();

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
+import com.babyshow.image.ImageStaticConstant;
 import com.babyshow.util.SpringContextUtil;
 import com.babyshow.util.StringUtil;
 
@@ -74,29 +75,35 @@ public class RestHelper
             if (bindingResult.hasErrors())
             {
                 restResponse = handleValidationError(method.getReturnType(), bindingResult);
+                return restResponse;
             }
             // 使用java反射分发方法
             restResponse = (RestResponse)method.invoke(restService, restRequest);
         }
         catch (SecurityException e)
         {
-            log.error("handleRest SecurityException", e);
+            log.error("handleRest SecurityException");
+            log.debug(e);
         }
         catch (NoSuchMethodException e)
         {
-            log.error("handleRest NoSuchMethodException", e);
+            log.error("handleRest NoSuchMethodException");
+            log.debug(e);
         }
         catch (IllegalArgumentException e)
         {
-            log.error("handleRest IllegalArgumentException", e);
+            log.error("handleRest IllegalArgumentException");
+            log.debug(e);
         }
         catch (IllegalAccessException e)
         {
-            log.error("handleRest IllegalAccessException", e);
+            log.error("handleRest IllegalAccessException");
+            log.debug(e);
         }
         catch (InvocationTargetException e)
         {
-            log.error("handleRest InvocationTargetException", e);
+            log.error("handleRest InvocationTargetException");
+            log.debug(e);
         }
         return restResponse;
     }
@@ -118,16 +125,51 @@ public class RestHelper
         }
         catch (InstantiationException e)
         {
-            log.error("handleValidationError InstantiationException", e);
+            log.error("handleValidationError InstantiationException");
+            log.debug(e);
         }
         catch (IllegalAccessException e)
         {
-            log.error("handleValidationError IllegalAccessException", e);
+            log.error("handleValidationError IllegalAccessException");
+            log.debug(e);
         }
         List<ObjectError> objectErrorList = result.getAllErrors();
         ObjectError objectError = objectErrorList.get(0);
-        restResponse.setError(objectError.getDefaultMessage());
+
+        // 获取错误信息
+        String errors = objectError.getDefaultMessage();
+        generateErrorMsg(restResponse, errors);
+        
+        String request = objectError.getObjectName();
+        restResponse.setRequest(request);
         return restResponse;
+    }
+
+    /** 
+     * 
+     * 根据i18n文件中的错误信息处理返回码和返回信息
+     * restResponse值会做相应改变
+     * 
+     * @param restResponse
+     * @param objectError
+     */
+    public static void generateErrorMsg(RestResponse restResponse, String errors)
+    {
+        String[] error = errors.split(ImageStaticConstant.I18NSEPARATOR);
+        // 国际化文件样式为"错误码#错误信息"
+        if(error != null && error.length > 1)
+        {
+            String errorCode = error[0];
+            restResponse.setErrorCode(errorCode);
+            String errorMessage = error[1];
+            restResponse.setError(errorMessage);
+        }
+        // 其他错误
+        else
+        {
+            restResponse.setErrorCode(ImageStaticConstant.SYSTEM_ERROR);
+            restResponse.setError(errors);
+        }
     }
     
     /**

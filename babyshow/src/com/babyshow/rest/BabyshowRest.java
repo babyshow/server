@@ -21,6 +21,8 @@ import com.babyshow.rest.imagepopular.ImagePopularRequest;
 import com.babyshow.rest.imagepopular.ImagePopularResponse;
 import com.babyshow.rest.imageshow.ImageShowRequest;
 import com.babyshow.rest.imageshow.ImageShowResponse;
+import com.babyshow.rest.uploadstatus.UploadStatusRequest;
+import com.babyshow.rest.uploadstatus.UploadStatusResponse;
 import com.babyshow.rest.uploadurl.UploadUrlRequest;
 import com.babyshow.rest.uploadurl.UploadUrlResponse;
 import com.babyshow.rest.userbabylike.UserBabyLikeRequest;
@@ -183,6 +185,25 @@ public class BabyshowRest
         return (UploadUrlResponse)restHelper.handleRest(httpheaders, uploadUrlRequest, bindingResult);
     }
     
+    
+    /**
+     * 
+     * 发送上传状态
+     * 
+     * @param httpheaders
+     * @param uploadStatusRequest
+     * @param bindingResult
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/upload/status")
+    @ResponseBody
+    public UploadStatusResponse doUploadStatus(@RequestHeader
+        HttpHeaders httpheaders, @Valid
+        @ModelAttribute
+        UploadStatusRequest uploadStatusRequest, BindingResult bindingResult)
+    {
+        return (UploadStatusResponse)restHelper.handleRest(httpheaders, uploadStatusRequest, bindingResult);
+    }
     
     /**
      *  查询公共展示照片

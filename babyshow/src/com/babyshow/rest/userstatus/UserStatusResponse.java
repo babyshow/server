@@ -21,6 +21,7 @@ public class UserStatusResponse extends RestResponse
      * ÓÃ»§×´Ì¬
      */
     @JsonProperty("user_status")
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private String userStatus;
     
     /**

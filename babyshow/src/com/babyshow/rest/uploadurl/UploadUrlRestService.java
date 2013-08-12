@@ -8,6 +8,7 @@ package com.babyshow.rest.uploadurl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.babyshow.rest.RestService;
 import com.babyshow.upload.bean.ImageUpload;
 import com.babyshow.upload.service.ImageUploadService;
 import com.babyshow.user.bean.User;
@@ -22,7 +23,7 @@ import com.babyshow.util.UUIDGenerator;
  * @version [BABYSHOW V1R1C1, 2013-7-1]
  */
 @Service
-public class UploadUrlRestService
+public class UploadUrlRestService extends RestService
 {
     @Autowired
     private UserService userService;
@@ -40,6 +41,15 @@ public class UploadUrlRestService
     {
         UploadUrlResponse UploadUrlResponse = new UploadUrlResponse();
         String deviceID = uploadUrlRequest.getDevice_id();
+        
+        // 校验ID是否存在
+        boolean userValidate = this.validateUser(deviceID, UploadUrlResponse);
+        if(!userValidate)
+        {
+            UploadUrlResponse.setRequest("uploadUrlRequest");
+            return UploadUrlResponse;
+        }
+        
         User user = this.userService.findUserByDeviceID(deviceID);
         String description = uploadUrlRequest.getImage_description();
         int shareType = uploadUrlRequest.getShare_type();

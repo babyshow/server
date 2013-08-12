@@ -5,25 +5,38 @@
  */
 package com.babyshow.rest.uploadstatus;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.babyshow.rest.RestRequest;
+
 /**
  * <一句话功能简述>
  * 
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-21]
  */
-public class UploadStatusRequest
+public class UploadStatusRequest extends RestRequest
 {
     /**
      * 设备ID
      */
+    @NotNull(message = "{user.deviceid.null}")
+    @Size(min = 1, max = 64, message = "{user.deviceid.length}")
     private String device_id;
     
     /**
      * 七牛上传路径，由服务器指派
      */
+    @NotNull(message = "{upload.qiniukey.null}")
+    @Size(min = 1, max = 128, message = "{upload.qiniukey.length}")
     private String qiniu_key;
     
-    private boolean upload_status;
+    /**
+     * 上传状态
+     */
+    @NotNull(message = "{upload.status.null}")
+    private Boolean upload_status;
     
     /**
      * 获取 device_id
@@ -70,7 +83,7 @@ public class UploadStatusRequest
      * 
      * @return 返回 upload_status
      */
-    public boolean isUpload_status()
+    public Boolean getUpload_status()
     {
         return upload_status;
     }
@@ -80,7 +93,7 @@ public class UploadStatusRequest
      * 
      * @param 对upload_status进行赋值
      */
-    public void setUpload_status(boolean upload_status)
+    public void setUpload_status(Boolean upload_status)
     {
         this.upload_status = upload_status;
     }

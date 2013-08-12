@@ -5,6 +5,11 @@
  */
 package com.babyshow.rest.uploadurl;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.babyshow.rest.RestRequest;
 
 /**
@@ -18,21 +23,27 @@ public class UploadUrlRequest extends RestRequest
     /**
      * 设备ID
      */
+    @NotNull(message = "{user.deviceid.null}")
+    @Size(min = 1, max = 64, message = "{user.deviceid.length}")
     private String device_id;
     
     /**
      * 照片描述
      */
+    @Size(min = 0, max = 256, message = "{image.description.length}")
     private String image_description;
     
     /**
      * 分享类型
      */
+    @Min(value = 0, message = "{image.sharetype.error}")
+    @Max(value = 4, message = "{image.sharetype.error}")
     private int share_type;
     
     /**
      * 第三方分享token
      */
+    @Size(min = 0, max = 256, message = "{share.token.length}")
     private String share_token;
 
     /**

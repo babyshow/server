@@ -10,6 +10,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.babyshow.rest.RestService;
 import com.babyshow.user.service.UserLoginLogService;
 import com.babyshow.user.service.UserService;
 
@@ -20,7 +21,7 @@ import com.babyshow.user.service.UserService;
  * @version [BABYSHOW V1R1C1, 2013-6-30]
  */
 @Service
-public class UserBabyLikeRestService
+public class UserBabyLikeRestService extends RestService
 {
     @Autowired
     private UserLoginLogService userLoginLogService;
@@ -39,6 +40,15 @@ public class UserBabyLikeRestService
     {
         UserBabyLikeResponse userBabyLikeResponse = new UserBabyLikeResponse();
         String deviceID = userBabyLikeRequest.getDevice_id();
+        
+        // 校验ID是否存在
+        boolean userValidate = this.validateUser(deviceID, userBabyLikeResponse);
+        if(!userValidate)
+        {
+            userBabyLikeResponse.setRequest("userBabyLikeRequest");
+            return userBabyLikeResponse;
+        }
+        
         int totalCount = this.userService.findUserBabyLikeCountByDeviceID(deviceID);
         Date preDate = this.userLoginLogService.findUserLastLoginTimeByDeviceID(deviceID);
         int newLikeCount = this.userService.findUserBabyLikeIncreaseByDeviceIDAndTime(deviceID, preDate);
@@ -46,4 +56,5 @@ public class UserBabyLikeRestService
         userBabyLikeResponse.setNewLikeCount(newLikeCount);
         return userBabyLikeResponse;
     }
+    
 }

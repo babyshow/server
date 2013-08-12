@@ -5,6 +5,8 @@
  */
 package com.babyshow.rest.uploadstatus;
 
+import com.babyshow.rest.RestResponse;
+
 
 /**
  * <一句话功能简述>
@@ -12,7 +14,7 @@ package com.babyshow.rest.uploadstatus;
  * @author ztc
  * @version [BABYSHOW V1R1C1, 2013-6-21]
  */
-public class UploadStatusResponse
+public class UploadStatusResponse extends RestResponse
 {
 
 }

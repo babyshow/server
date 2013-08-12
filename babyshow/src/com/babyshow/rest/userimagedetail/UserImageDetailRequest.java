@@ -5,6 +5,11 @@
  */
 package com.babyshow.rest.userimagedetail;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
+
 import com.babyshow.rest.RestRequest;
 
 /**
@@ -18,16 +23,21 @@ public class UserImageDetailRequest extends RestRequest
     /**
      * 设备ID
      */
+    @NotNull(message = "{user.deviceid.null}")
+    @Size(min = 1, max = 64, message = "{user.deviceid.length}")
     private String device_id;
     
     /**
      * 照片ID
      */
+    @NotNull(message = "{image.imageid.null}")
+    @Size(min = 1, max = 64, message = "{image.imageid.length}")
     private String image_id;
     
     /**
      * 照片类型
      */
+    @Range(min = 0, max = 2, message = "{image.imagestyle.error}")
     private Integer image_style;
     
     /**

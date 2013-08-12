@@ -7,6 +7,7 @@ package com.babyshow.rest.uploadurl;
 
 import com.babyshow.rest.RestResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <一句话功能简述>
@@ -20,6 +21,7 @@ public class UploadUrlResponse extends RestResponse
      * 七牛上次路径
      */
     @JsonProperty("qiniu_key")
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private String qiniuKey;
     
     /**

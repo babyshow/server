@@ -5,6 +5,11 @@
  */
 package com.babyshow.rest.imageshow;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
+
 import com.babyshow.rest.RestRequest;
 
 /**
@@ -18,12 +23,15 @@ public class ImageShowRequest extends RestRequest
     /**
      * 设备ID
      */
+    @NotNull(message = "{user.deviceid.null}")
+    @Size(min = 1, max = 64, message = "{user.deviceid.length}")
     private String device_id;
     
     /**
      * 照片返回个数
      */
-    private int count;
+    @Range(min = 1, max = 100, message = "{image.count.length}")
+    private Integer count;
     
     /**
      * 照片样式
@@ -51,26 +59,6 @@ public class ImageShowRequest extends RestRequest
     }
     
     /**
-     * 获取 count
-     * 
-     * @return 返回 count
-     */
-    public int getCount()
-    {
-        return count;
-    }
-    
-    /**
-     * 设置 count
-     * 
-     * @param 对count进行赋值
-     */
-    public void setCount(int count)
-    {
-        this.count = count;
-    }
-    
-    /**
      * 获取 image_style
      * 
      * @return 返回 image_style
@@ -88,6 +76,26 @@ public class ImageShowRequest extends RestRequest
     public void setImage_style(int image_style)
     {
         this.image_style = image_style;
+    }
+    
+    /**
+     * 获取 count
+     * 
+     * @return 返回 count
+     */
+    public Integer getCount()
+    {
+        return count;
+    }
+    
+    /**
+     * 设置 count
+     * 
+     * @param 对count进行赋值
+     */
+    public void setCount(Integer count)
+    {
+        this.count = count;
     }
     
 }

@@ -8,8 +8,10 @@ package com.babyshow.rest.userimagedetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.babyshow.image.ImageStaticConstant;
 import com.babyshow.image.bean.Image;
 import com.babyshow.image.service.ImageService;
+import com.babyshow.rest.RestService;
 
 /**
  * <一句话功能简述>
@@ -18,7 +20,7 @@ import com.babyshow.image.service.ImageService;
  * @version [BABYSHOW V1R1C1, 2013-6-30]
  */
 @Service
-public class UserImageDetailRestService
+public class UserImageDetailRestService extends RestService
 {
     @Autowired
     private ImageService imageService;
@@ -32,10 +34,35 @@ public class UserImageDetailRestService
      */
     public UserImageDetailResponse handleUserImageDetail(UserImageDetailRequest userImageDetailRequest)
     {
-        String imageCode = userImageDetailRequest.getImage_id();
-        Integer imageStyle = userImageDetailRequest.getImage_style();
-        Image image = this.imageService.findImageByImageCode(imageCode, imageStyle);
         UserImageDetailResponse userImageDetailResponse = new UserImageDetailResponse();
+        String deviceID = userImageDetailRequest.getDevice_id();
+        
+        // 校验ID是否存在
+        boolean userValidate = this.validateUser(deviceID, userImageDetailResponse);
+        if(!userValidate)
+        {
+            userImageDetailResponse.setRequest("userImageDetailRequest");
+            return userImageDetailResponse;
+        }
+        
+        String imageCode = userImageDetailRequest.getImage_id();
+        
+        // 校验图片是否存在
+        boolean imageValidate = this.validateImage(imageCode, userImageDetailResponse);
+        if(!imageValidate)
+        {
+            userImageDetailResponse.setRequest("userImageDetailRequest");
+            return userImageDetailResponse;
+        }
+        
+        Integer imageStyle = userImageDetailRequest.getImage_style();
+        // 不穿取默认style
+        if(imageStyle == null)
+        {
+            imageStyle = ImageStaticConstant.DEFAULT_IMAGE_STYLE;
+        }
+        Image image = this.imageService.findImageByImageCode(imageCode, imageStyle);
+
         String imageUrl = image.getUrl();
         userImageDetailResponse.setImageUrl(imageUrl);
         return userImageDetailResponse;

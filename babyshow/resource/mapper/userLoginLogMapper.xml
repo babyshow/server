@@ -10,5 +10,10 @@
        where ull.usercode = u.usercode
     ]]>
     </select>
-	
+    <insert id="insertUserLoginTime">
+        insert into
+        t_userloginlog(usercode,logintime)
+        value
+        (#{userCode},#{date})
+    </insert>
 </mapper>

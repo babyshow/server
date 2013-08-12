@@ -19,9 +19,19 @@ public interface ImageStaticConstant
     
     public static final String IMAGE_DOWNLOAD_URL_PREFIX = "showbaby-develop";
     
+    public static final int DEFAULT_IMAGE_STYLE = 0;
+    
     public static final int DEFAULT_RECORD_PER_PAGE = 10;
     
     public static final int IMAGE_LIKE_TYPE_LIKE = 0;
     
     public static final int IMAGE_LIKE_TYPE_DISLIKE = 1;
+    
+    /**
+     * 国际化文件分隔符
+     */
+    public final static String I18NSEPARATOR = "#";
+    
+    public final static String SYSTEM_ERROR = "999";
+    
 }

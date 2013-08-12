@@ -13,7 +13,7 @@
 
     <select id="findImageUploadByQiniuKey" resultType="com.babyshow.upload.bean.ImageUpload">
         select 
-        usercode,uploadtime,description,qiniukey,sharetype,sharetoken,result
+        usercode,uploadtime,description,qiniukey,sharetype,sharetoken,imagecode,result
         from 
         t_imageupload
         where

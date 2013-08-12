@@ -5,11 +5,15 @@
  */
 package com.babyshow.rest.userstatus;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.babyshow.rest.RestService;
 import com.babyshow.rest.RestStaticConstant;
 import com.babyshow.user.bean.User;
+import com.babyshow.user.service.UserLoginLogService;
 import com.babyshow.user.service.UserService;
 
 /**
@@ -19,10 +23,13 @@ import com.babyshow.user.service.UserService;
  * @version  [BABYSHOW V1R1C1, 2013-6-27]
  */
 @Service
-public class UserStatusRestService
+public class UserStatusRestService extends RestService
 {
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private UserLoginLogService userLoginLogService;
     
     /**
      * 
@@ -38,6 +45,10 @@ public class UserStatusRestService
         if(userService.isUserExistByDeviceID(deviceID))
         {
             userStatus.setUserStatus(RestStaticConstant.USER_LOGIN_STATUS_NONFISRT);
+            // 设置用户登录信息
+            User user = this.userService.findUserByDeviceID(deviceID);
+            Date date = new Date();
+            this.userLoginLogService.insertUserLoginTime(user.getUserCode(), date);
         }
         else
         {
@@ -46,6 +57,10 @@ public class UserStatusRestService
             int userNum = user.getRegNum();
             userStatus.setUserStatus(RestStaticConstant.USER_LOGIN_STATUS_FISRT);
             userStatus.setUserNum(userNum);
+            
+            // 设置用户首次登录信息
+            Date date = new Date();
+            this.userLoginLogService.insertUserLoginTime(user.getUserCode(), date);
         }
         return userStatus;
     }

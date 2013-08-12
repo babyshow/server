@@ -5,6 +5,9 @@
  */
 package com.babyshow.rest.userbabylike;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.babyshow.rest.RestRequest;
 
 /**
@@ -18,6 +21,8 @@ public class UserBabyLikeRequest extends RestRequest
     /**
      * …Ë±∏ID
      */
+    @NotNull(message = "{user.deviceid.null}")
+    @Size(min = 1, max = 64, message = "{user.deviceid.length}")
     private String device_id;
     
     /**

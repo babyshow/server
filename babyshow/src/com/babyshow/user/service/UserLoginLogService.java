@@ -36,4 +36,15 @@ public class UserLoginLogService
         return this.userLoginLogDao.findUserLastLoginTimeByDeviceID(deviceID);
     }
     
+    /**
+     * 
+     * 写入用户登录时间
+     * 
+     * @param userCode
+     * @param date
+     */
+    public void insertUserLoginTime(String userCode, Date date)
+    {
+        this.userLoginLogDao.insertUserLoginTime(userCode, date);
+    }
 }

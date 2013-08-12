@@ -7,6 +7,8 @@ package com.babyshow.user.dao;
 
 import java.util.Date;
 
+import org.apache.ibatis.annotations.Param;
+
 /**
  * <一句话功能简述>
  * 
@@ -23,4 +25,13 @@ public interface UserLoginLogDao
      * @return
      */
     public Date findUserLastLoginTimeByDeviceID(String deviceID); 
+    
+    /**
+     * 
+     * 写入用户登录时间
+     * 
+     * @param userCode
+     * @param date
+     */
+    public void insertUserLoginTime(@Param("userCode") String userCode, @Param("date") Date date);
 }

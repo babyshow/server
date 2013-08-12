@@ -7,6 +7,7 @@ package com.babyshow.rest.imagepopular;
 
 import com.babyshow.rest.RestResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <一句话功能简述>
@@ -20,37 +21,43 @@ public class ImagePopularResponse extends RestResponse
      * 照片ID
      */
     @JsonProperty("image_id")
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
     private String imageID;
     
     /**
      * 照片路径
      */
     @JsonProperty("image_url")
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
     private String imageUrl;
     
     /**
      * 照片描述
      */
     @JsonProperty("image_description")
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
     private String imageDescription;
     
     /**
      * 照片创建时间
      */
     @JsonProperty("image_created_time")
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
     private String imageCreatedTime;
     
     /**
      * 照片被喜欢次数
      */
     @JsonProperty("image_like_count")
-    private int imageLikeCount;
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+    private Integer imageLikeCount;
     
     /**
      * 该用户对照片的喜欢状态
      */
     @JsonProperty("like_status")
-    private boolean likeStatus;
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+    private Boolean likeStatus;
     
     /**
      * 获取 imageID
@@ -137,7 +144,7 @@ public class ImagePopularResponse extends RestResponse
      * 
      * @return 返回 imageLikeCount
      */
-    public int getImageLikeCount()
+    public Integer getImageLikeCount()
     {
         return imageLikeCount;
     }
@@ -147,7 +154,7 @@ public class ImagePopularResponse extends RestResponse
      * 
      * @param 对imageLikeCount进行赋值
      */
-    public void setImageLikeCount(int imageLikeCount)
+    public void setImageLikeCount(Integer imageLikeCount)
     {
         this.imageLikeCount = imageLikeCount;
     }
@@ -157,7 +164,7 @@ public class ImagePopularResponse extends RestResponse
      * 
      * @return 返回 likeStatus
      */
-    public boolean isLikeStatus()
+    public Boolean getLikeStatus()
     {
         return likeStatus;
     }
@@ -167,7 +174,7 @@ public class ImagePopularResponse extends RestResponse
      * 
      * @param 对likeStatus进行赋值
      */
-    public void setLikeStatus(boolean likeStatus)
+    public void setLikeStatus(Boolean likeStatus)
     {
         this.likeStatus = likeStatus;
     }

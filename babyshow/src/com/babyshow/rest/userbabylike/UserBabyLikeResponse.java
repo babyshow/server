@@ -6,6 +6,7 @@
 package com.babyshow.rest.userbabylike;
 
 import com.babyshow.rest.RestResponse;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <一句话功能简述>
@@ -18,11 +19,13 @@ public class UserBabyLikeResponse extends RestResponse
     /**
      * 所有照片被Like次数
      */
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private Integer totalLikeCount;
     
     /**
      * 新增照片Like次数
      */
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private Integer newLikeCount;
     
     /**

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.babyshow.rest.RestResponse;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <一句话功能简述>
@@ -21,6 +22,7 @@ public class ImageShowResponse extends RestResponse
     /**
      * 照片列表
      */
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     private List<ImageShowResponseImage> imageShowResponseImageList = new ArrayList<ImageShowResponseImage>();
     
     /**

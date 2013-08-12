@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.babyshow.rest.RestResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * <一句话功能简述>
@@ -22,13 +23,15 @@ public class UserImagesShowResponse extends RestResponse
     /**
      * 照片列表
      */
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
     private List<UserImagesShowResponseImage> userImageShowResponseImageList = new ArrayList<UserImagesShowResponseImage>();
     
     /**
      * 照片总个数
      */
     @JsonProperty("total_number")
-    private int totalNumber;
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+    private Integer totalNumber;
     
     /**
      * 获取 userImageShowResponseImageList
@@ -55,7 +58,7 @@ public class UserImagesShowResponse extends RestResponse
      * 
      * @return 返回 totalNumber
      */
-    public int getTotalNumber()
+    public Integer getTotalNumber()
     {
         return totalNumber;
     }
@@ -65,7 +68,7 @@ public class UserImagesShowResponse extends RestResponse
      * 
      * @param 对totalNumber进行赋值
      */
-    public void setTotalNumber(int totalNumber)
+    public void setTotalNumber(Integer totalNumber)
     {
         this.totalNumber = totalNumber;
     }
