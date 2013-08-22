@@ -1,0 +1,1 @@
+{"request": "<%=request.getAttribute("javax.servlet.error.request_uri")%>","errorCode": "<%=request.getAttribute("javax.servlet.error.status_code")%>","error":"<%=request.getAttribute("javax.servlet.error.message")%>"}
