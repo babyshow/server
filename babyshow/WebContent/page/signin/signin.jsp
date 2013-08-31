@@ -59,14 +59,14 @@
     <div class="container">
 
       <form class="form-signin" action="<%=basePath%>rest/signin" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" name="username" class="input-block-level" placeholder="Email address">
-        <input type="password" name="password" class="input-block-level" placeholder="Password">
+        <h2 class="form-signin-heading">登  录</h2>
+        <input type="text" name="username" class="input-block-level" placeholder="帐号">
+        <input type="password" name="password" class="input-block-level" placeholder="密码">
         <h5>${message}</h5>
         <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me">下次自动登录
         </label>
-        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+        <button class="btn btn-large btn-primary" type="submit">确认登录</button>
       </form>
 
     </div> 
