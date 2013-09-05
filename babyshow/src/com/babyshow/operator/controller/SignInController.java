@@ -80,6 +80,23 @@ public class SignInController
     
     /**
      * 
+     * 登出控制
+     * 
+     * @param username
+     * @param password
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/signout", method = RequestMethod.GET)
+    public @ResponseBody
+    ModelAndView signOut(String username, String password, Map<String,Object> model, HttpSession session)
+    {
+        session.removeAttribute("operator");
+        return new ModelAndView("forward:/page/signin/signin.jsp");
+    }
+    
+    /**
+     * 
      * 校验登录
      * 
      * @param loginForm
