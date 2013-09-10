@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <![endif]-->
 <meta charset="utf-8">
-<title>mock 后台</title>
+<title>BabyShow运营管理系统</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<%=basePath%>css/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="<%=basePath%>css/bootstrap/bootstrap-responsive.min.css">
 <!-- Bootstrap CSS fixes for IE6 -->
 <!--[if lt IE 7]>
 <link rel="stylesheet" href="<%=basePath%>css/bootstrap/bootstrap-ie6.min.css">
@@ -25,76 +24,97 @@
 
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a href="#" class="brand">Babyshow</a>
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li><a href="<%=basePath%>rest/mock/user">增加喜欢次数</a></li>
-                        <li class="active"><a href="<%=basePath%>rest/mock/upload">mock用户数据</a></li>
-                        <li><a href="<%=basePath%>rest/signout">退出</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-<div class="container">
-    <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="<%=basePath%>rest/upload/" method="POST" enctype="multipart/form-data">
-		<div class="page-header">
-			<div class="row">
-				<div class="span7">
-					<span>用户ID：</span>
-					<span>${usercode}</span>
-				</div>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+		<a href="#" class="brand">Babyshow</a>
+			<div class="container">
+				<ul class="nav">
+					<li><a href="<%=basePath%>rest/mock/user">增加喜欢次数</a></li>
+					<li class="active"><a href="<%=basePath%>rest/mock/upload">mock用户数据</a></li>
+				</ul>
+				<ul class="nav pull-right">
+					<li id="accountmenu" class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">用户<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">help</a></li>
+                            <li class="divider"></li>
+                            <li><a href="<%=basePath%>rest/signout">退出</a></li>
+                        </ul>
+                    </li>
+                    
+				</ul>
 			</div>
 		</div>
-		<noscript><input type="hidden" name="redirect" value="<%=basePath%>rest/upload/"></noscript>
-        <div class="row fileupload-buttonbar">
-            <div class="span7">
-                <span class="btn btn-success fileinput-button">
-                    <i class="icon-plus icon-white"></i>
-                    <span>选择照片</span>
-                    <input type="file" name="files[]" multiple>
-                </span>
-                <button type="submit" class="btn btn-primary start">
-                    <i class="icon-upload icon-white"></i>
-                    <span>上传照片</span>
-                </button>
-                <button type="reset" class="btn btn-warning cancel">
-                    <i class="icon-ban-circle icon-white"></i>
-                    <span>取消上传</span>
-                </button>
-                <button type="button" class="btn btn-danger delete">
-                    <i class="icon-trash icon-white"></i>
-                    <span>删除照片</span>
-                </button>
-                <input type="checkbox" class="toggle">
-                <span class="fileupload-loading"></span>
+	</div>
+
+	<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="">
+            <div class="sidebar-nav">
             </div>
-            <div class="span5 fileupload-progress fade">
-                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                    <div class="bar" style="width:0%;"></div>
+            <div class="sidebar-middle">
+                <div class="navpoint">
                 </div>
-                <div class="progress-extended">&nbsp;</div>
             </div>
         </div>
-        <table role="presentation" class="table table-bordered table-striped">
-	        <tbody class="files">
-	           <tr>
-                   <th style="width: 10%">图片</th>
-                   <th style="width: 12%">上传日期</th>
-                   <th style="width: 15%">时间</th>
-                   <th style="width: 8%">喜欢次数</th>
-                   <th style="width: 25%">描述</th>
-                   <th style="width: 10%">图片大小</th>
-                   <th style="width: 20%">操作</th>
-	           </tr>
-	        </tbody>
-        </table>
-    </form>
+        
+        <div class="main">
+        <!-- The file upload form used as target for the file upload widget -->
+        <form id="fileupload" action="<%=basePath%>rest/upload/" method="POST" enctype="multipart/form-data">
+            <div class="page-header">
+                <div class="row">
+                    <div class="span7">
+                        <span>用户ID：</span>
+                        <span>${usercode}</span>
+                    </div>
+                </div>
+            </div>
+            <noscript><input type="hidden" name="redirect" value="<%=basePath%>rest/upload/"></noscript>
+            <div class="row fileupload-buttonbar">
+                <div class="span7">
+                    <span class="btn btn-success fileinput-button">
+                        <i class="icon-plus icon-white"></i>
+                        <span>选择照片</span>
+                        <input type="file" name="files[]" multiple>
+                    </span>
+                    <button type="submit" class="btn btn-primary start">
+                        <i class="icon-upload icon-white"></i>
+                        <span>上传照片</span>
+                    </button>
+                    <button type="reset" class="btn btn-warning cancel">
+                        <i class="icon-ban-circle icon-white"></i>
+                        <span>取消上传</span>
+                    </button>
+                    <button type="button" class="btn btn-danger delete">
+                        <i class="icon-trash icon-white"></i>
+                        <span>删除照片</span>
+                    </button>
+                    <input type="checkbox" class="toggle">
+                    <span class="fileupload-loading"></span>
+                </div>
+                <div class="span5 fileupload-progress fade">
+                    <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bar" style="width:0%;"></div>
+                    </div>
+                    <div class="progress-extended">&nbsp;</div>
+                </div>
+            </div>
+            <table role="presentation" class="table table-bordered table-striped">
+                <tbody class="files">
+                   <tr>
+                       <th style="width: 10%">图片</th>
+                       <th style="width: 12%">上传日期</th>
+                       <th style="width: 15%">时间</th>
+                       <th style="width: 8%">喜欢次数</th>
+                       <th style="width: 25%">描述</th>
+                       <th style="width: 10%">图片大小</th>
+                       <th style="width: 20%">操作</th>
+                   </tr>
+                </tbody>
+            </table>
+        </form>
+        </div>
+    </div>
 </div>
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">
@@ -177,6 +197,8 @@
 <script src="<%=basePath%>js/jquery/jquery-1.10.1.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="<%=basePath%>js/upload/jquery.ui.widget.js"></script>
+<script src="<%=basePath%>js/bootstrap/bootstrap-dropdown.js"></script>
+<script src="<%=basePath%>js/babyshow/dropdown.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->
 <script src="<%=basePath%>js/upload/tmpl.min.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->

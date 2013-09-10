@@ -38,7 +38,69 @@ body {
 	text-decoration: none;
 }
 
+.navbar-inner .container {
+	width: auto;
+    margin-left: 5px;	
+}
+
+body > .navbar .brand {
+    color: #FFFFFF;
+    margin-left: 45px;
+}
+
 /*基于bootstrap,Babyshow定制的nav导航结束*/
+
+/*基于bootstrap,Babyshow定制的侧导航*/
+.sidebar-nav {
+    position:fixed;
+    width:180px;
+    left:0px;
+    bottom:0;
+    top:40px;
+    background:#E9E9E9;
+    border-color: #BDBDBD;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    padding: 9px 0; 
+    z-index:10;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+body {
+    margin-left: 180px;
+    padding-bottom: 40px;
+    padding-top: 50px;
+    transition: margin 500ms ease 0s;
+}
+
+/*侧导航伸缩*/
+.sidebar-middle{
+    border-color: #BDBDBD;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    top:40px;
+    bottom: 0;
+    left: 180px;
+    padding: 9px 0;
+    position: fixed;
+    transition: all 500ms ease 0s;
+    width: 5px;
+    z-index: 10;
+}
+
+.main {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 30px 15px 15px;
+    position: relative;
+    word-wrap: break-word;
+}
 
 /*日历控件*/
 .template-upload .datepicker {

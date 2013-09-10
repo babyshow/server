@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <![endif]-->
 <meta charset="utf-8">
-<title>增加喜欢次数</title>
+<title>BabyShow运营管理系统</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<%=basePath%>css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="<%=basePath%>css/bootstrap/bootstrap-responsive.min.css">
@@ -36,7 +36,7 @@
 					<ul class="nav">
 						<li class="active"><a href="<%=basePath%>rest/mock/user">增加喜欢次数</a></li>
 						<li><a href="<%=basePath%>rest/mock/upload">mock用户数据</a></li>
-						<li><a href="#contact">退出</a></li>
+						<li><a href="<%=basePath%>rest/signout">退出</a></li>
 					</ul>
 				</div>
 			</div>
