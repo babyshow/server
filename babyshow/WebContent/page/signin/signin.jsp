@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le styles -->
-    <link href="<%=basePath%>css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=basePath%>css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 40px;

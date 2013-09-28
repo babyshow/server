@@ -1,9 +1,12 @@
 @charset "UTF-8";
 
-body {
-	padding-top: 100px;
-	/* 60px to make the container go all the way to the bottom of the topbar */
-}
+.navbar-fixed-top .nav .gravatar a,.navbar-fixed-top .nav .gravatar a:hover {
+	background: url(../img/avatar.png) left 5px no-repeat;
+	background-size:100%;
+	height: 15px;
+	width: 10px;
+	margin-right: -2px;
+} 
 
 /*基于bootstrap,Babyshow定制的nav导航*/
 .navbar .navbar-inner {
@@ -27,10 +30,9 @@ body {
 }
 
 .navbar .nav>li>a:hover {
-    color: #FFFFFF;
-    text-shadow: none;
+	color: #FFFFFF;
+	text-shadow: none;
 }
-
 
 .navbar .nav .active>a,.navbar .nav .active>a:hover {
 	background-color: #FFFFFF;
@@ -40,66 +42,58 @@ body {
 
 .navbar-inner .container {
 	width: auto;
-    margin-left: 5px;	
+	margin-left: 5px;
 }
 
-body > .navbar .brand {
-    color: #FFFFFF;
-    margin-left: 45px;
+body>.navbar .brand {
+	color: #FFFFFF;
 }
 
 /*基于bootstrap,Babyshow定制的nav导航结束*/
 
-/*基于bootstrap,Babyshow定制的侧导航*/
-.sidebar-nav {
-    position:fixed;
-    width:180px;
-    left:0px;
-    bottom:0;
-    top:40px;
-    background:#E9E9E9;
-    border-color: #BDBDBD;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    padding: 9px 0; 
-    z-index:10;
-    -webkit-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
-    -ms-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    transition: all 500ms ease;
+.menu-head {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-bottom: 1px solid #CACACA;
+    height: 35px;
+    margin-bottom: 20px;
+    padding-top: 30px;
 }
 
-body {
-    margin-left: 180px;
-    padding-bottom: 40px;
-    padding-top: 50px;
-    transition: margin 500ms ease 0s;
+/* BOX */
+.box{
+    margin-bottom:20px !important;
 }
 
-/*侧导航伸缩*/
-.sidebar-middle{
-    border-color: #BDBDBD;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    top:40px;
-    bottom: 0;
-    left: 180px;
-    padding: 9px 0;
-    position: fixed;
-    transition: all 500ms ease 0s;
-    width: 5px;
-    z-index: 10;
+.box-header {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	border-color: #D5D5D5;
+	border-image: none;
+	border-radius: 4px 4px 0 0 !important;
+	border-style: solid !important;
+	border-width: 1px !important;
+	color: #333333;
+	height: 25px;
+	padding: 8px 10px 5px;
 }
 
-.main {
-    border: 1px solid #DDDDDD;
-    border-radius: 4px 4px 4px 4px;
-    margin-left: 0;
-    margin-top: 10px;
-    padding: 30px 15px 15px;
-    position: relative;
-    word-wrap: break-word;
+.box-header h3 {
+	color: #555555;
+	font-size: 14px;
+}
+
+.box-content {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CCCCCC;
+	min-height: 10px;
+}
+
+.content-inner {
+	height: auto;
+	margin: 10px;
+	width: auto;
 }
 
 /*日历控件*/
