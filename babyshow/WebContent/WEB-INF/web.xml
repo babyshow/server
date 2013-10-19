@@ -49,7 +49,7 @@
 			<param-name>noCheck</param-name>
 			<param-value>
 			    /rest/signin,
-				/css/bootstrap.min.css,
+				/css/bootstrap.css,
 				
 				/rest/users/status,
 				/rest/users/baby_like_count,

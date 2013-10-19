@@ -13,12 +13,8 @@
 <title>BabyShow运营管理系统</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<%=basePath%>css/babyshow/style_first.css">
-<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
-<link rel="stylesheet" href="<%=basePath%>css/bootstrap-responsive.min.css">
-<!-- Bootstrap CSS fixes for IE6 -->
-<!--[if lt IE 7]>
-<link rel="stylesheet" href="<%=basePath%>css/bootstrap-ie6.min.css">
-<![endif]-->
+<link rel="stylesheet" href="<%=basePath%>css/bootstrap.css">
+<link rel="stylesheet" href="<%=basePath%>css/bootstrap-responsive.css">
 <link rel="stylesheet" href="<%=basePath%>css/babyshow/style.css">
 <link rel="stylesheet" href="<%=basePath%>css/upload/blueimp-gallery.min.css">
 <link rel="stylesheet" href="<%=basePath%>css/upload/jquery.fileupload-ui.css">
@@ -57,27 +53,11 @@
 		</div>
 	</div>
 
-	<div class="menu-head">
-		<div class="container-fluid">
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#">功能</a></li>
-				<li class="dropdown"><a href="#" data-toggle="dropdown"
-					class="dropdown-toggle">备用<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
 
 	<div class="container-fluid">
 		<div class="row-fluid">
-
 			<div class="span3">
-				<ul class="nav nav-tabs nav-stacked">
+				<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="40">
                     <li><a href="<%=basePath%>rest/mock/user">增加喜欢次数</a></li>
                     <li class="active"><a href="<%=basePath%>rest/mock/upload">mock用户数据</a></li>
 					<li><a href="#">Comments <span
@@ -89,34 +69,26 @@
 					<li><a href="#">Orders <span
 							class="pull-right badge badge-success">4</span></a></li>
 				</ul>
-				<ul class="nav nav-tabs nav-stacked">
-					<li><a href="#">Chart</a></li>
-					<li><a href="#">Blank</a></li>
-					<li><a href="#">Sign in</a></li>
-					<li><a href="#">404</a></li>
-				</ul>
 			</div>
 
 			<div class="span9">
 				<div class="row-fluid">
-					<div class="span12 box">
-					   <div class="box-header"><h3><i class="icon-comment"></i> Comments</h3></div>
+					<div class="box">
+					   <div class="box-header"><i class="icon-comment"></i>上传照片</div>
 					   <div class="box-content">
 						<!-- The file upload form used as target for the file upload widget -->
 						<form id="fileupload" action="<%=basePath%>rest/upload/"
 							method="POST" enctype="multipart/form-data">
 							<div class="page-header">
-								<div class="row">
-									<div class="span7">
-										<span>用户ID：</span> <span>${usercode}</span>
-									</div>
+								<div class="span7">
+									<span>用户ID：</span> <span>${usercode}</span>
 								</div>
 							</div>
 							<noscript>
 								<input type="hidden" name="redirect"
 									value="<%=basePath%>rest/upload/">
 							</noscript>
-							<div class="row fileupload-buttonbar">
+							<div class="fileupload-buttonbar">
 								<div class="span7">
 									<span class="btn btn-success fileinput-button"> <i
 										class="icon-plus icon-white"></i> <span>选择照片</span> <input
@@ -251,6 +223,7 @@
 	<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 	<script src="<%=basePath%>js/upload/jquery.ui.widget.js"></script>
 	<script src="<%=basePath%>js/bootstrap/bootstrap-dropdown.js"></script>
+	<script src="<%=basePath%>js/bootstrap/bootstrap-affix.js"></script>
 	<script src="<%=basePath%>js/babyshow/dropdown.js"></script>
 	<!-- The Templates plugin is included to render the upload/download listings -->
 	<script src="<%=basePath%>js/upload/tmpl.min.js"></script>
